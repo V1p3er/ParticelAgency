@@ -1,0 +1,99 @@
+<style>
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600');
+
+body {
+  background: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  color: #757575;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  background: #fff;
+  padding: 40px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+
+</style>
+{% extends 'home/main.html' %}
+{% load static %}
+{% block title %}
+    <title>ParticelAG- About Us</title>
+{% endblock title %}
+{% block cs50d %}
+    <link rel="stylesheet" href="{% static "home/css/about.css" %}">
+    <div class="cs50d-container">
+        <div class="content">
+            <div class="headintro">
+                <h1 style="text-align: center; font-size: 50px;">Our Journey</h1>
+                <p style="width: 60%; text-align: center; margin-left:19%; font-size: 20px; margin-bottom: 60px">In the vast universe of digital innovation, where every pixel and code fragment plays a crucial role, there emerged a visionary agency dedicated to mastering the art of the smallest details. This agency, known as ParticleAG, was founded on the principle that the most significant breakthroughs come from understanding and perfecting the smallest components—just like particles in the fabric of our universe.</p>
+            </div>
+            <div class="ourservice">
+                <div class="left">
+                    <h1 style="margin-bottom: 50px; border-color:none;">Our services</h1>
+                    <h4>Web and App Development</h4>
+                    <h4>Digital Marketing</h4>
+                    <h4>Sales Solutions</h4>
+                </div>
+                <div class="right">
+                    <button style="width:150px; border-radius: 50px;border-left-width: 0px;border-bottom-width: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;padding-top: 0px;border-top-width: 0px;border-right-width: 0px;"><a href="{% url "pershdev-home" %}" style="width:150px; border-radius: 50px; background:white">Contact Us</a></button>
+                </div>
+            </div>
+            <div class="services">
+                <div class="left">
+                    <div>
+                        <h1>Web and App development</h1>
+                        <p>Our development team transforms ideas into digital realities. By leveraging the latest technologies and best practices, we create websites and applications that are not only functional but also captivating.</p>
+                    </div>
+                    <div>
+                        <h1>Digital Marketing</h1>
+                        <p>In the competitive landscape of digital marketing, every detail counts. Our marketing experts use data-driven strategies to optimize campaigns, ensuring maximum reach and engagement for our clients. Our services include:
+
+                            Search Engine Optimization (SEO): Improve your website's visibility on search engines to attract more organic traffic.
+
+                            Pay-Per-Click (PPC) Advertising: Target your audience with precision using PPC campaigns that maximize ROI.
+
+                            Social Media Marketing: Engage with your audience on platforms like Facebook, Instagram, Twitter, and LinkedIn.
+
+                            Content Marketing: Create valuable content that attracts, engages, and converts your target audience.
+
+                            Email Marketing: Develop email campaigns that nurture leads and drive conversions.
+                        </p>
+                    </div>
+                    <div>
+                        <h1>Sales Solutions</h1>
+                        <p>Sales Funnel Optimization: Enhance every stage of your sales funnel to convert more leads into customers.
+
+                            Customer Relationship Management (CRM): Implement and manage CRM systems to improve customer interactions and retention.
+
+                            Lead Generation: Identify and attract potential customers through targeted campaigns and strategies.
+
+                            Sales Training and Coaching: Equip your sales team with the skills and knowledge they need to succeed.
+
+                            Analytics and Reporting: Use data-driven insights to refine your sales strategies and improve performance.
+                        </p>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="img1"><img src="{% static "home/images/web.jpg" %}" alt=""></div>
+                    <div class="img2" hidden><img src="{% static "home/images/web.jpg" %}" alt=""></div>
+                    <div class="img3" hidden><img src="{% static "home/images/web.jpg" %}" alt=""></div>
+                </div>
+            </div>
+            <div class="joinus">
+                <h1>Join us today</h1>
+                <p>Whether you’re looking to build a stunning website, develop a groundbreaking app, or launch a transformative marketing campaign, boosting your sales, ParticleAG is here to turn your vision into reality.</p>
+                <a href="{% url "pershdev-home" %}">Contact Us</a>
+            </div>
+        </div>
+    </div>
+{% endblock cs50d %}

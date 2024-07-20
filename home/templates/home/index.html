@@ -1,0 +1,209 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          <title>ParticelAG</title>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+          <meta name="description" content="Expert in web and app development, digital marketing, and sales solutions. We turn your vision into reality with innovative and detailed-driven strategies. Discover unparalleled digital solutions with ParticleAG.">
+          <meta name="keywords" content="Web development, Backend, Frontend, Database management, programming Agency">
+          <meta name="author" content="Particel Team">
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+          <link rel="stylesheet" href="{% static 'home/css/cstm.css' %}">
+          <link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}">
+          <link rel="icon" href="{% static 'home/images/Particel.png' %}" type="image/icon type">
+
+          <!-- MAIN CSS -->
+          <link rel="stylesheet" href="{% static 'home/css/main.css' %}">
+     </head>
+     <body>
+
+          <!-- PRE LOADER -->
+          <section class="preloader">
+               <div class="spinner">
+                    <span class="spinner-rotate"></span>
+               </div>
+          </section>
+          <!-- MENU -->
+          <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+               <div class="container">
+                    <div class="navbar-header">
+                         <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                              <span class="icon icon-bar"></span>
+                              <span class="icon icon-bar"></span>
+                              <span class="icon icon-bar"></span>
+                         </button>
+
+                         <!-- lOGO TEXT HERE -->
+                         <a href="{% url 'pershdev-home' %}" class="navbar-brand">ParticelAG</a>
+                    </div>
+
+                    <!-- MENU LINKS -->
+                    <div class="collapse navbar-collapse">
+                         <ul class="nav navbar-nav navbar-nav-first">
+                              <li><a href="{% url 'pershdev-home' %}" class="smoothScroll">Home</a></li>
+                              <li><a href="{% url 'pershdev-cs50d' %}" class="smoothScroll">About Us</a></li>
+                              <li><a href="#about" class="smoothScroll">Who are we?</a></li>
+                              <li><a href="#contact" class="smoothScroll">Contact Us</a></li>
+                              <li><a href=".linkme" class="smoothScroll">Find me</a></li>
+                         </ul>
+                         <ul class="nav navbar-nav navbar-right">
+                              <li><a href="https://www.facebook.com/particelag" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+                              <li><a href="https://www.twitter.com/particelag/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                              <li><a href="https://www.instagram.com/particelag/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                         </ul>
+                    </div>
+               </div>
+          </section>
+
+          <!-- HOME -->
+          <section id="home" data-stellar-background-ratio="0.5">
+               <div class="overlay"></div>
+               <div class="container">
+                    <div class="col-sm-12" id="homee">
+                         <div class="home-info">
+                              <div id="djmsg">
+                                   {% if cf_name %}
+                                        <h2 style="color:white;">Thanks {{cf_name}}</h2>
+                                        <p style="color:white;">I recieved your email and I respond shortly ...</p>
+                                        <br/><br/><br/><br/>
+                                   {% endif %}
+                              </div>
+                              <h1>ParticleAG: Your Partner in Digital Innovation</h1>
+                              <a href="#contact" class="btn section-btn smoothScroll">Start working with us</a>
+                              <span>
+                                   Email Us: support@particelag.com
+                                   <small>For personal/small businesses</small>
+                              </span>
+                         </div>
+                    </div>
+               </div>
+          </section>
+
+          <!-- ABOUT -->
+          <div class="mains">
+               <div class="about-info" id="about">
+                    <div class="sections-title">
+                         <h2>Who are we?</h2>
+                    </div>
+                    <div class="aboutp"><p>At <b><i>ParticleAG</i></b>, we specialize in <b><i>creating cutting-edge web</i></b> and <b><i>app development solutions</i></b>, driving impactful digital <b><i>digital marketing campaigns</i></b>, and implementing effective <b><i>sales strategies</i></b>. Our meticulous attention to detail and commitment to excellence ensures that each project, no matter the size, delivers unparalleled results. Whether you're a startup looking to build your <b><i>digital presence</i></b> or an <b><i>established</i></b> enterprise aiming to optimize and innovate, <b><i>ParticleAG</i></b> is your trusted partner in navigating the digital landscape. Discover how we can <b><i>transform your vision into reality—one</i></b> particle at a time.</p></div>
+               </div>
+               <div class="about-img">
+                    <img class="imgabout" src="{% static 'home/images/Particel.png' %}" alt="Image didn't loaded properly" height="300px" width="300px" style="margin-top:100px">
+               </div>
+          </div>
+          <div class='marginbtm'></br></br></br></div>
+
+          <!-- CONTACT -->
+          <section id="contact" data-stellar-background-ratio="0.5">
+               <div class="container">
+                    <div class="row">
+                         <div class="col-md-12 col-sm-12">
+                              <div class="section-title">
+                                   <h2>Contact us</h2>
+                                   <span class="line-bar">...</span>
+                              </div>
+                         </div>
+                         <div class="col-md-8 col-sm-8" id="sectionss">
+
+                              <!-- CONTACT FORM HERE -->
+                              <form id="contact-form" role="form" action="{% url 'pershdev-home' %}" method="post">
+                                   {% csrf_token %}
+                                   <div class="col-md-6 col-sm-6">
+                                        <input type="text" class="form-control" placeholder="Full Name" id="cf-name" name="cf-name" required="">
+                                   </div>
+
+                                   <div class="col-md-6 col-sm-6">
+                                        <input type="email" class="form-control" placeholder="Your Email" id="cf-email" name="cf-email" required="">
+                                   </div>
+
+                                   <div class="col-md-6 col-sm-6">
+                                        <input type="tel" class="form-control" placeholder="Your Phone" id="cf-number" name="cf-number" required="">
+                                   </div>
+
+                                   <div class="col-md-6 col-sm-6">
+                                        <select class="form-control" id="cf-budgets" name="cf-budgets">
+                                             <option>Budget Level</option>
+                                             <option>Below $500</option>
+                                             <option>$500 to $1,000</option>
+                                             <option>$1,000 to $2,200</option>
+                                             <option>$2,200 to $4,500</option>
+                                             <option>$4,500 to $7,500</option>
+                                             <option>$7,500 to $12,000</option>
+                                             <option>$12,000 or more</option>
+                                        </select>
+                                   </div>
+
+                                   <div class="col-md-12 col-sm-12">
+                                        <textarea class="form-control" rows="6" placeholder="Your requirements" id="cf-message" name="cf-message" required=""></textarea>
+                                   </div>
+                                   <div class="col-md-4 col-sm-12">
+                                        <input type="submit" class="form-control" name="submit" value="Send Message">
+                                   </div>
+                              </form>
+                         </div>
+
+                         <div class="col-md-4 col-sm-4">
+                              <div class="google-map">
+                                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.2221483668222!2d51.26171811513785!3d35.74534423406074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8dfca816365f41%3A0x68ddf3235a1c78a1!2sTehran%20Province%2C%20Tehran%2C%20Dehkadeh%20Olympic%20Blvd%2C%20Iran!5e0!3m2!1sen!2s!4v1629115378007!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </section>
+
+          <!-- FOOTER -->
+          <footer data-stellar-background-ratio="0.5">
+               <div class="container">
+                    <div class="row">
+
+                         <div class="col-md-5 col-sm-12">
+                              <div class="footer-thumb footer-info">
+                                   <h2>ParticelAG</h2>
+                                   <p>ParticleAG is your partner in digital innovation, specializing in web and app development, digital marketing, and sales solutions. We turn your vision into reality with meticulous attention to detail and a commitment to excellence. </p>
+                              </div>
+                         </div>
+
+                         <div class="col-md-3 col-sm-4">
+                              <div class="footer-thumb">
+                                   <h2>Find me</h2>
+                                   <a class="linkme" href="https://github.com/ParticelTeam" target="_blank">Github</a><br>
+                                   <a class="linkme" href="https://stackoverflow.com/users/15398984/v1p3r" target="_blank">Stack Overflow</a> <br>
+                                   <a class="linkme" href="https://www.instagram.com/Particelag/" target="_blank">Instagram</a>
+                              </div>
+                         </div>
+
+                         <div class="col-md-12 col-sm-12">
+                              <div class="footer-bottom">
+                                   <div class="col-md-6 col-sm-5">
+                                        <div class="copyright-text">
+                                             <p>Copyright &copy; 2024 Particel Agency</p>
+                                        </div>
+                                   </div>
+                                   <div class="col-md-6 col-sm-7">
+                                        <div class="phone-contact">
+                                             <p>Email Us <span>support@particelag.com</span></p>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </footer>
+
+          <!-- SCRIPTS -->
+          <script src="{% static 'home/js/jquery.js' %}"></script>
+          <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+          <script src="{% static 'home/js/jquery.stellar.min.js' %}"></script>
+          <script src="{% static 'home/js/jquery.magnific-popup.min.js' %}"></script>
+          <script src="{% static 'home/js/smoothscroll.js' %}"></script>
+          <script src="{% static 'home/js/custom.js' %}"></script>
+          <script>
+          setTimeout(function(){
+               if ($('#djmsg').length > 0) {
+                    $('#djmsg').remove();
+               }
+          }, 5000)    // 2000 millisecond
+          </script>
+     </body>
+</html>
