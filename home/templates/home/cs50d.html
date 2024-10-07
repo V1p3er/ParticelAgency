@@ -15,14 +15,72 @@ body {
   background: #fff;
   padding: 40px;
   margin-bottom: 20px;
+  margin-top: 70px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   width: 100%;
   justify-content: center;
   align-items: center;
   align-content: center;
+  .img-container {
+    position: relative;
+    display: inline-block;
+    width: 100%; /* Make it responsive */
+    height: auto;
 }
 
+.overlay {
+    background: #0b1957;
+    opacity: 0.7;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    border: 50px;
+}
 
+.img-container img {
+    border: 50px;
+}
+button {
+    background: #e6d8c7; /* Base background color */
+    width: 150px;
+    border-radius: 50px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.3s ease; /* Smooth transition for hover */
+}
+
+button:hover {
+    background: #9eccfa; /* Hover background color */
+}
+
+button a {
+    text-decoration: none;
+    color: #000; /* Link color */
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: normal;
+}
+
+.joinus a {
+    background: #e6d8c7;
+    border-radius: 50px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #000;
+    transition: background 0.3s ease;
+}
+
+.joinus a:hover {
+    background: #9eccfa; /* Hover background color */
+}
 </style>
 {% extends 'home/main.html' %}
 {% load static %}
@@ -45,7 +103,9 @@ body {
                     <h4>Sales Solutions</h4>
                 </div>
                 <div class="right">
-                    <button style="width:150px; border-radius: 50px;border-left-width: 0px;border-bottom-width: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;padding-top: 0px;border-top-width: 0px;border-right-width: 0px;"><a href="{% url "pershdev-home" %}" style="width:150px; border-radius: 50px; background:white">Contact Us</a></button>
+                    <button>
+                        <a href="{% url 'pershdev-home' %}" style="background:none;">Contact Us</a>
+                    </button>
                 </div>
             </div>
             <div class="services">
@@ -84,9 +144,10 @@ body {
                     </div>
                 </div>
                 <div class="right">
-                    <div class="img1"><img src="{% static "home/images/web.jpg" %}" alt=""></div>
-                    <div class="img2" hidden><img src="{% static "home/images/web.jpg" %}" alt=""></div>
-                    <div class="img3" hidden><img src="{% static "home/images/web.jpg" %}" alt=""></div>
+                    <div class="img-container">
+                        <div class="overlay"></div>
+                        <img src="{% static 'home/images/web.jpg' %}" alt="Web Development">
+                    </div>
                 </div>
             </div>
             <div class="joinus">

@@ -1,6 +1,6 @@
 
 .ourservice {
-    background: linear-gradient(to right, #0575E6, #00F260);
+    background: #0b1957;
     border-radius: 10px;
     padding: 5%;
     display: flex;
@@ -40,7 +40,7 @@
 }
 .joinus a{
     color: azure;
-    background: linear-gradient(to right, #0575E6, #00F260);
+    background: #0b1957;
     text-align: center;
     border-radius: 50px;
     border: 0px;
