@@ -20,11 +20,11 @@ def home(request):
         return render(request,'home/index.html', {'cf_name':cf_name})
     else:
         return render(request,'home/index.html')
-
-
 def projects_pg1(request):
     return render(request, 'home/projects-pg1.html')
 def projects_pg2(request):
     return render(request, 'home/projects-pg2.html')
 def cs50d(request):
     return render(request, 'home/cs50d.html')
+def achieve(request):
+    return render(request, "home/achievments.html")

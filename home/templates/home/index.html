@@ -16,6 +16,241 @@
 
           <!-- MAIN CSS -->
           <link rel="stylesheet" href="{% static 'home/css/main.css' %}">
+          <style>
+                   footer {
+      background-color: #0b1957;
+      color: #f8f3ea;
+      padding: 60px 0 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    .navbar {
+      background-color: transparent;
+      padding: 15px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1030;
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      color: #f8f3ea;
+      text-decoration: none;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      color: #9eccfa;
+    }
+
+    .navbar-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-nav > li > a {
+      color: #f8f3ea;
+      font-size: 1.5rem;
+      padding: 8px 15px;
+      text-decoration: none;
+      transition: color 0.3s ease, background-color 0.3s ease;
+      border-radius: 5px;
+    }
+
+    .navbar-nav > li > a:hover,
+    .navbar-nav > li > a:focus {
+      color: #9eccfa;
+      background-color: rgba(158, 204, 250, 0.1);
+    }
+
+    .navbar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    .icon-bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: #f8f3ea;
+      margin: 4px 0;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-social {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-social a {
+      color: #f8f3ea;
+      font-size: 1.8rem;
+      margin-left: 15px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-social a:hover {
+      color: #9eccfa;
+    }
+
+    @media (max-width: 768px) {
+      .navbar-nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: rgba(11, 25, 87, 0.95);
+        padding: 10px 0;
+      }
+
+      .navbar-nav.show {
+        display: flex;
+      }
+
+      .navbar-toggle {
+        display: block;
+      }
+
+      .navbar-social {
+        display: none;
+      }
+    }
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-section {
+      flex: 1;
+      margin-right: 40px;
+      margin-bottom: 30px;
+      min-width: 200px;
+    }
+
+    .footer-section:last-child {
+      margin-right: 0;
+    }
+
+    .footer-section h2 {
+      color: #9eccfa;
+      font-size: 1.9rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-section h2::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50px;
+      height: 2px;
+      background-color: #9eccfa;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: #e6d8c7;
+      line-height: 1.6;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: #9eccfa;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(230, 216, 199, 0.1);
+    }
+
+    .copyright-text {
+      color: #e6d8c7;
+      font-size: 0.9rem;
+    }
+
+    .footer-social {
+      margin-top: 20px;
+    }
+
+    .footer-social a {
+      color: #e6d8c7;
+      font-size: 1.5rem;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      color: #9eccfa;
+    }
+
+    .footer-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.05;
+      background-image: url('https://your-background-image-url.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    @media (max-width: 768px) {
+      .footer-content {
+        flex-direction: column;
+      }
+
+      .footer-section {
+        margin-right: 0;
+      }
+    }
+     .navbar.scrolled {
+     background-color: white;
+     }
+
+     .navbar.scrolled .navbar-brand,
+     .navbar.scrolled .navbar-nav > li > a,
+     .navbar.scrolled .navbar-social a { /* Target the social media links */
+     color: #0b1957;
+     }
+     .navbar.scrolled {
+  background-color: white;
+}
+     
+     </style>
      </head>
      <body>
           <!-- PRE LOADER -->
@@ -25,37 +260,31 @@
                </div>
           </section>
           <!-- MENU -->
-          <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
-               <div class="container">
-                    <div class="navbar-header">
-                         <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                              <span class="icon icon-bar"></span>
-                              <span class="icon icon-bar"></span>
-                              <span class="icon icon-bar"></span>
-                         </button>
 
-                         <!-- lOGO TEXT HERE -->
-                         <a href="{% url 'pershdev-home' %}" class="navbar-brand">ParticelAG</a>
+               <nav class="navbar">
+                    <div class="navbar-container">
+                      <a href="{% url 'pershdev-home' %}" class="navbar-brand" style="font-size: 2.5rem; font-weight: bold;">ParticelAG</a>
+                      <button class="navbar-toggle" id="navbarToggle">   
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      <ul class="navbar-nav" id="navbarNav">
+                        <li><a href="{% url 'pershdev-home' %}" class="smoothScroll">Home</a></li>
+                        <li><a href="{% url 'achieve' %}" class="smoothScroll">Achievements</a></li>
+                        <li><a href="{% url 'pershdev-cs50d' %}" class="smoothScroll">About Us</a></li>
+                        <li><a href="#contact" class="smoothScroll">Contact Us</a></li>
+                        <li><a href="#findus" class="smoothScroll">Find Us</a></li>
+                      </ul>
+                      <div class="navbar-social">
+                        <a href="https://www.facebook.com/particelag" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                        <a href="https://www.twitter.com/particelag/" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/particel.ag" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@ParticelDigitalAgency" target="_blank"><i class="fab fa-youtube"></i></a>
+                      </div>
                     </div>
+                  </nav>
 
-                    <!-- MENU LINKS -->
-                    <div class="collapse navbar-collapse">
-                         <ul class="nav navbar-nav navbar-nav-first">
-                              <li><a href="{% url 'pershdev-home' %}" class="smoothScroll">Home</a></li>
-                              <li><a href="{% url 'pershdev-cs50d' %}" class="smoothScroll">About Us</a></li>
-                              <li><a href="#about" class="smoothScroll">Who are we?</a></li>
-                              <li><a href="#contact" class="smoothScroll">Contact Us</a></li>
-                              <li><a href=".linkme" class="smoothScroll">Find Us</a></li>
-                         </ul>
-                         <ul class="nav navbar-nav navbar-right">
-                              <li><a href="https://www.facebook.com/particelag" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
-                              <li><a href="https://www.twitter.com/particelag/" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                              <li><a href="https://www.instagram.com/particelag/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                              <li><a href="https://www.instagram.com/particelag/" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
-                         </ul>
-                    </div>
-               </div>
-          </section>
 
           <!-- HOME -->
           <section id="home" data-stellar-background-ratio="0.5">
@@ -153,53 +382,41 @@
                </div>
           </section>
 
-          <!-- FOOTER -->
-          <footer data-stellar-background-ratio="0.5">
-               <div class="container">
-                    <div class="row">
-
-                         <div class="col-md-5 col-sm-12">
-                              <div class="footer-thumb footer-info">
-                                   <h2>Terms and Agreements</h2>
-
-                                        <p>By accessing or utilizing any of our services, you acknowledge that you have thoroughly read, comprehended, and unconditionally accept all the terms and conditions outlined in our Terms of Service, Privacy Policy, and any other applicable agreements or policies. Your continued use of our services constitutes your ongoing acceptance of these terms, and any modifications or updates we may make to them in the future. If you do not agree with any part of these agreements, please refrain from using our services.</p>
-                              </div>
-                         </div>
-
-                         <div class="col-md-3 col-sm-4">
-                              <div class="footer-thumb">
-                                   <h2>Find Us</h2>
-                                   <a class="linkme" href="https://stackoverflow.com/users/15398984/v1p3r" target="_blank">Twitter</a> <br>
-                                   <a class="linkme" href="https://www.instagram.com/Particelag/" target="_blank">Instagram</a><br>
-                                   <a class="linkme" href="https://www.instagram.com/Particelag/" target="_blank">Youtube</a><br>
-                                   <a class="linkme" href="https://www.instagram.com/Particelag/" target="_blank">Facebook</a>
-                              </div>
-                         </div>
-                         <div class="col-md-3 col-sm-4">
-                              <div class="footer-thumb">
-                                   <h2>Terms and Agreements</h2>
-                                   <a class="linkme" href="https://docs.google.com/document/d/1rRlOQaO2yKxXM6YloCM2jaOvsofAbVy2tB7sPGYFiZ8/edit?usp=sharing" target="_blank">Privacy Policy</a><br>
-                                   <a class="linkme" href="https://docs.google.com/document/d/1BHuYnVqf3jusMiQxdbLxS-uh__yVK_Q_ls4wYeW0tTk/edit?usp=sharing" target="_blank">Services Agreement</a> <br>
-                                   <a class="linkme" href="https://docs.google.com/document/d/1PKsTCZqt5EfaIayQAc6AissLcC_CehAKhMt4oep42YE/edit?usp=sharing" target="_blank">Terms and Conditions</a>
-                              </div>
-                         </div>
-                         <div class="col-md-12 col-sm-12">
-                              <div class="footer-bottom">
-                                   <div class="col-md-6 col-sm-5">
-                                        <div class="copyright-text">
-                                             <p>Copyright &copy; 2024 Particel Digital Agency</p>
-                                        </div>
-                                   </div>
-                                   <div class="col-md-6 col-sm-7">
-                                        <div class="phone-contact">
-                                             <p>Email Us <span>contact@ParticelDigital.Agency</span></p>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
-                    </div>
+          <footer id="findus">
+               <div class="footer-background"></div>
+               <div class="footer-content">
+                 <div class="footer-section" style="background-color: #0b1957;">
+                   <h2>Terms and Agreements</h2>
+                   <p>By accessing or utilizing any of our services, you acknowledge that you have thoroughly read, comprehended, and unconditionally accept all the terms and conditions outlined in our Terms of Service, Privacy Policy, and any other applicable agreements or policies.</p>
+                 </div>
+                 <div class="footer-section">
+                   <div id="findus">
+                   <h2>Find Us</h2>
+                   <a href="https://twitter.com/particelag" target="_blank">Twitter</a>
+                   <a href="https://www.instagram.com/particel.ag" target="_blank">Instagram</a>
+                   <a href="https://www.youtube.com/@ParticelDigitalAgency" target="_blank">Youtube</a>
+                   <a href="https://www.facebook.com/particelag" target="_blank">Facebook</a>
+                   </div>
+                 </div>
+                 <div class="footer-section">
+                   <h2>Legal Documents</h2>
+                   <a href="https://docs.google.com/document/d/1rRlOQaO2yKxXM6YloCM2jaOvsofAbVy2tB7sPGYFiZ8/edit?usp=sharing" target="_blank">Privacy Policy</a>
+                   <a href="https://docs.google.com/document/d/1BHuYnVqf3jusMiQxdbLxS-uh__yVK_Q_ls4wYeW0tTk/edit?usp=sharing" target="_blank">Services Agreement</a>
+                   <a href="https://docs.google.com/document/d/1PKsTCZqt5EfaIayQAc6AissLcC_CehAKhMt4oep42YE/edit?usp=sharing" target="_blank">Terms and Conditions</a>
+                 </div>
                </div>
-          </footer>
+               <div class="footer-bottom">
+                 <div class="copyright-text">
+                   <p>&copy; 2024 Particel Digital Agency. All rights reserved.</p>
+                 </div>
+                 <div class="footer-social">
+                   <a href="https://www.facebook.com/particelag" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                   <a href="https://www.twitter.com/particelag/" target="_blank"><i class="fab fa-twitter"></i></a>
+                   <a href="https://www.instagram.com/particel.ag" target="_blank"><i class="fab fa-instagram"></i></a>
+                   <a href="https://www.youtube.com/@ParticelDigitalAgency" target="_blank"><i class="fab fa-youtube"></i></a>
+                 </div>
+               </div>
+             </footer>
 
           <!-- SCRIPTS -->
           <script src="{% static 'home/js/jquery.js' %}"></script>
@@ -214,6 +431,21 @@
                     $('#djmsg').remove();
                }
           }, 5000)    // 2000 millisecond
+
+          // Add this script to keep navbar transparent
+          window.addEventListener('scroll', function() {
+               var navbar = document.querySelector('.navbar');
+               navbar.style.backgroundColor = 'transparent';
+          });
+          window.addEventListener('scroll', function() {
+               var navbar = document.querySelector('.navbar');
+               if (window.scrollY > 0) {
+               navbar.classList.add('scrolled');
+               navbar.style.backgroundColor = 'white';
+               } else {
+               navbar.classList.remove('scrolled');
+          }
+});
           </script>
      </body>
 </html>
