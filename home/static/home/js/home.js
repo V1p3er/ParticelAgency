@@ -2,7 +2,7 @@ setTimeout(function(){
   if ($('#djmsg').length > 0) {
        $('#djmsg').remove();
   }
-}, 5000)    // 2000 millisecond
+}, 30000)    // 2000 millisecond
 
 // Add this script to keep navbar transparent
 window.addEventListener('scroll', function() {

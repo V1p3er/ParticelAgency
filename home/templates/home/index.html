@@ -2,31 +2,16 @@
 <!DOCTYPE html>
 <html lang="en">
      <head>
-          <title>ParticleAG: Expert Web & App Development, Digital Marketing, and Sales Solutions</title>
+          <title>Particel Digital Agency</title>
           <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+          <meta name="description" content="Expert in web and app development, digital marketing, and sales solutions. We turn your vision into reality with innovative and detailed-driven strategies. Discover unparalleled digital solutions with ParticleAG.">
+          <meta name="keywords" content="Web development, Backend, Frontend, Database management, programming Agency">
+          <meta name="author" content="Particel Team">
           <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-          <meta name="description" content="ParticleAG offers cutting-edge web and app development, impactful digital marketing, and effective sales strategies. Transform your digital presence with our innovative solutions.">
-          <meta name="keywords" content="Web development, App development, Digital marketing, Sales solutions, ParticleAG, Digital innovation">
-          <meta name="author" content="ParticleAG Team">
-          
-          <!-- Open Graph / Facebook -->
-          <meta property="og:type" content="website">
-          <meta property="og:url" content="https://www.particeldigital.agency/">
-          <meta property="og:title" content="ParticleAG: Your Partner in Digital Innovation">
-          <meta property="og:description" content="Expert web and app development, digital marketing, and sales solutions. Transform your vision into reality with ParticleAG.">
-          <meta property="og:image" content="{% static 'home/images/og-image.jpg' %}">
-
-          <!-- Twitter -->
-          <meta property="twitter:card" content="summary_large_image">
-          <meta property="twitter:url" content="https://www.particeldigital.agency/">
-          <meta property="twitter:title" content="ParticleAG: Your Partner in Digital Innovation">
-          <meta property="twitter:description" content="Expert web and app development, digital marketing, and sales solutions. Transform your vision into reality with ParticleAG.">
-          <meta property="twitter:image" content="{% static 'home/images/twitter-image.jpg' %}">
-
-          <link rel="canonical" href="https://www.particeldigital.agency/">
           <link rel="stylesheet" href="{% static 'home/css/cstm.css' %}">
           <link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}">
-          <link rel="icon" href="{% static 'home/images/Particel.png' %}" type="image/png">
+          <link rel="icon" href="{% static 'home/images/Particel.png' %}" type="image/icon type">
           <script src="https://kit.fontawesome.com/b9928a934b.js" crossorigin="anonymous"></script>
 
           <!-- MAIN CSS -->
@@ -88,7 +73,9 @@
                               <div id="djmsg">
                                    {% if cf_name %}
                                         <h2 style="color:white;">Thanks {{cf_name}}</h2>
-                                        <p style="color:white;">I recieved your email and I respond shortly ...</p>
+                                        <p style="color:white;">We recieved your email and we willrespond shortly ...</p>
+                                        <p style="color:white;">We will contact you on {{cf_number}} or {{cf_email}}</p>
+                                        <p style="color:white;">Check your inbox & spam folder in 24 hours for our response if we are not in touch contact us on <a href="mailto:contact@particeldigital.agency" style="color:white;">contact@particeldigital.agency</a></p>
                                         <br/><br/><br/><br/>
                                    {% endif %}
                               </div>
@@ -219,26 +206,5 @@
           <script src="{% static 'home/js/jquery.magnific-popup.min.js' %}"></script>
           <script src="{% static 'home/js/smoothscroll.js' %}"></script>
           <script src="{% static 'home/js/custom.js' %}"></script>
-
-          <!-- Add structured data for LocalBusiness -->
-          <script type="application/ld+json">
-          {
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "ParticleAG Digital Agency",
-            "image": "{% static 'home/images/Particel.png' %}",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Via Val di Sole, 9A",
-              "addressLocality": "Milano",
-              "addressRegion": "MI",
-              "postalCode": "20141",
-              "addressCountry": "IT"
-            },
-            "url": "https://www.particeldigital.agency/",
-            "telephone": "+1234567890",
-            "priceRange": "$$$"
-          }
-          </script>
      </body>
 </html>
