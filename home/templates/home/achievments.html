@@ -1,877 +1,168 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="icon" href="{% static 'home/images/Particel.png' %}" type="image/icon type">
-  <title>Particel - Our Clients & Achievements</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0b1957;
-      color: #f8f3ea;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-
-    .header {
-      text-align: center;
-      margin-bottom: 40px;
-      background: linear-gradient(to right, #9eccfa, #0b1957);
-      padding: 20px;
-      border-radius: 12px;
-      color: white;
-    }
-
-    .navbar {
-      background-color: rgba(11, 25, 87, 0.95);
-      padding: 15px 0;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1030;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-    }
-
-    .navbar-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .navbar-brand {
-      font-weight: 700;
-      color: #f8f3ea;
-      text-decoration: none;
-      font-size: 1.5rem;
-      transition: color 0.3s ease;
-    }
-
-    .navbar-brand:hover {
-      color: #9eccfa;
-    }
-
-    .navbar-nav {
-      display: flex;
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .navbar-nav > li > a {
-      color: #f8f3ea;
-      font-size: 1rem;
-      padding: 8px 15px;
-      text-decoration: none;
-      transition: color 0.3s ease, background-color 0.3s ease;
-      border-radius: 5px;
-    }
-
-    .navbar-nav > li > a:hover,
-    .navbar-nav > li > a:focus {
-      color: #9eccfa;
-      background-color: rgba(158, 204, 250, 0.1);
-    }
-
-    .navbar-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 10px;
-    }
-
-    .icon-bar {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background-color: #f8f3ea;
-      margin: 4px 0;
-      transition: all 0.3s ease;
-    }
-
-    .navbar-social {
-      display: flex;
-      align-items: center;
-    }
-
-    .navbar-social a {
-      color: #f8f3ea;
-      font-size: 1.2rem;
-      margin-left: 15px;
-      transition: color 0.3s ease;
-    }
-
-    .navbar-social a:hover {
-      color: #9eccfa;
-    }
-
-    @media (max-width: 768px) {
-      .navbar-nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: rgba(11, 25, 87, 0.95);
-        padding: 10px 0;
-      }
-
-      .navbar-nav.show {
-        display: flex;
-      }
-
-      .navbar-toggle {
-        display: block;
-      }
-
-      .navbar-social {
-        display: none;
-      }
-    }
-
-    footer {
-      background-color: #0b1957;
-      color: #f8f3ea;
-      padding: 60px 0 30px;
-      position: relative;
-      overflow: hidden;
-    }
- 
-    .footer-content {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .footer-section {
-      flex: 1;
-      margin-right: 40px;
-      margin-bottom: 30px;
-      min-width: 200px;
-    }
-
-    .footer-section:last-child {
-      margin-right: 0;
-    }
-
-    .footer-section h2 {
-      color: #9eccfa;
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      position: relative;
-      padding-bottom: 10px;
-    }
-
-    .footer-section h2::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 50px;
-      height: 2px;
-      background-color: #9eccfa;
-    }
-
-    .footer-section p,
-    .footer-section a {
-      color: #e6d8c7;
-      line-height: 1.6;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 10px;
-      transition: color 0.3s ease;
-    }
-
-    .footer-section a:hover {
-      color: #9eccfa;
-    }
-
-    .footer-bottom {
-      text-align: center;
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(230, 216, 199, 0.1);
-    }
-
-    .copyright-text {
-      color: #e6d8c7;
-      font-size: 0.9rem;
-    }
-
-    .footer-social {
-      margin-top: 20px;
-    }
-
-    .footer-social a {
-      color: #e6d8c7;
-      font-size: 1.5rem;
-      margin: 0 10px;
-      transition: color 0.3s ease;
-    }
-
-    .footer-social a:hover {
-      color: #9eccfa;
-    }
-
-    .footer-background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.05;
-      background-image: url('https://your-background-image-url.jpg');
-      background-size: cover;
-      background-position: center;
-    }
-
-    @media (max-width: 768px) {
-      .footer-content {
-        flex-direction: column;
-      }
-
-      .footer-section {
-        margin-right: 0;
-      }
-    }
-
-    h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      letter-spacing: -1px;
-    }
-
-    .subheader {
-      font-size: 1.1rem;
-      max-width: 680px;
-      margin: 0 auto;
-      opacity: 0.9;
-    }
-
-    .reviews-container {
-      position: relative;
-    }
-
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .review-card {
-      background-color: rgba(230, 216, 199, 0.1);
-      border-radius: 12px;
-      padding: 20px;
-      color: #f8f3ea;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-    }
-
-    .review-card:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    .review-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 15px;
-    }
-
-    .review-image {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      margin-right: 15px;
-      object-fit: cover;
-      border: 2px solid #9eccfa;
-    }
-
-    .review-author {
-      font-weight: 700;
-      font-size: 1rem;
-      margin-bottom: 4px;
-    }
-
-    .review-role {
-      font-size: 0.85rem;
-      opacity: 0.8;
-    }
-
-    .review-content {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      transition: opacity 0.3s ease;
-    }
-
-    .review-card:hover .review-content {
-      opacity: 0.8;
-    }
-
-    .fade-out {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    }
-
-    .fade-in {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    }
-
-    .achievements-container {
-      background: linear-gradient(90deg, #9eccfa, #e6d8c7, #0b1957, #f8f3ea);
-      background-size: 400% 100%;
-      animation: gradient 15s ease infinite;
-      padding: 40px 20px;
-      border-radius: 15px;
-      margin: 30px auto;
-      max-width: 1200px;
-    }
-
-    @keyframes gradient {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    .achievements {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .container2 {
-      background-color: #f8f3ea;
-      padding: 30px 0;
-    }
-
-    .achievement {
-      text-align: center;
-      padding: 30px 20px;
-      border-radius: 10px;
-      background-color: rgba(255, 255, 255, 0.9);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-      flex: 1;
-      transition: transform 0.2s ease;
-      min-width: 220px;
-    }
-
-    .achievement:hover {
-      transform: translateY(-5px);
-    }
-
-    .achievement i {
-      font-size: 40px;
-      margin-bottom: 10px;
-      color: #0b1957;
-    }
-
-    .achievement .number {
-      font-size: 30px;
-      font-weight: bold;
-      color: #0b1957;
-      margin-bottom: 10px;
-    }
-
-    .achievement h3 {
-      font-size: 1.8rem;
-      margin: 0 0 10px 0;
-      color: #0b1957;
-    }
-
-    .achievement p {
-      font-size: 1rem;
-      line-height: 1.5;
-      color: #333;
-    }
-
-    @media (max-width: 768px) {
-      .achievements {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .achievement {
-        width: 100%;
-        max-width: 300px;
-        margin-bottom: 20px;
-      }
-
-      .reviews-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Preloader styles */
-    .preloader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #0b1957;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    .spinner {
-      width: 50px;
-      height: 50px;
-      border: 3px solid #f8f3ea;
-      border-top: 3px solid #9eccfa;
-      border-radius: 50%;
-      animation: spin 5s linear infinite;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .number-container {
-      display: flex;
-      justify-content: center;
-      align-items: baseline;
-      font-size: 30px;
-      font-weight: bold;
-      color: #0b1957;
-    }
-
-    .number {
-      margin-right: 2px;
-    }
-
-    .symbol {
-      font-size: 24px;
-    }
-  </style>
-</head>
-<body>
-  <!-- PRE LOADER -->
-  <section class="preloader">
-    <div class="spinner"></div>
-  </section>
-  <nav class="navbar">
-    <div class="navbar-container">
-      <a href="{% url 'pershdev-home' %}" class="navbar-brand">ParticelAG</a>
-      <button class="navbar-toggle" id="navbarToggle">   
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <ul class="navbar-nav" id="navbarNav">
-        <li><a href="{% url 'pershdev-home' %}" class="smoothScroll">Home</a></li>
-        <li><a href="{% url 'achieve' %}" class="smoothScroll">Achievements</a></li>
-        <li><a href="{% url 'pershdev-cs50d' %}" class="smoothScroll">About Us</a></li>
-        <li><a href="{% url 'pershdev-home' %}" class="smoothScroll">Contact Us</a></li>
-        <li><a href="#findus" class="smoothScroll">Find Us</a></li>
-      </ul>
-      <div class="navbar-social">
-        <a href="https://www.facebook.com/particelag" target="_blank"><i class="fab fa-facebook-square"></i></a>
-        <a href="https://www.twitter.com/particelag/" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.instagram.com/particel.ag" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.youtube.com/@ParticelDigitalAgency" target="_blank"><i class="fab fa-youtube"></i></a>
-      </div>
-    </div>
-  </nav>
-  <section class="container2">
-    <aside class="achievements-container"> 
-      <div class="achievements">
-        <div class="achievement happy">
-          <i class="fas fa-smile-beam"></i>
-          <div class="number-container">
-            <span class="number" data-target="50">0</span><span class="symbol">+</span>
-          </div>
-          <h3>Happy Clients</h3>
-          <p>Trust us with their projects.</p>
-        </div>
-        <div class="achievement successful">
-          <i class="fas fa-project-diagram"></i>
-          <div class="number-container">
-            <span class="number" data-target="60">0</span><span class="symbol">+</span>
-          </div>
-          <h3>Successful Projects</h3>
-          <p>Completed with excellence.</p>
-        </div>
-        <div class="achievement trusted">
-          <i class="fas fa-handshake"></i>
-          <div class="number-container">
-            <span class="number" data-target="10">0</span><span class="symbol">+</span>
-          </div>
-          <h3>Trusted Partners</h3>
-          <p>Leading companies in the industry.</p>
-        </div>
-        <div class="achievement satisfied">
-          <i class="fas fa-thumbs-up"></i>
-          <div class="number-container">
-            <span class="number" data-target="90">0</span><span class="symbol">%</span>
-          </div>
-          <h3>Satisfied Customers</h3>
-          <p>Rate our services highly.</p>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover Particel Digital Agency's achievements, happy clients, and successful projects. Leading digital solutions for businesses.">
+    <meta name="keywords" content="Particel, digital agency, achievements, clients, projects, digital solutions">
+    <link rel="canonical" href="https://www.particel.com/achievements">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" href="{% static 'home/images/Particel.png' %}" type="image/icon type">
+    <link rel="stylesheet" href="{% static 'home/css/achievement.css' %}">
+    <title>Particel Digital Agency - Client Achievements & Success Stories | Leading Digital Solutions</title>
+    <meta property="og:title" content="Particel Digital Agency - Client Achievements & Success Stories">
+    <meta property="og:description" content="Discover Particel Digital Agency's achievements, happy clients, and successful projects. Leading digital solutions for businesses.">
+    <meta property="og:image" content="{% static 'home/images/Particel.png' %}">
+    <meta property="og:url" content="https://www.particel.com/achievements">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Particel Digital Agency - Client Achievements & Success Stories">
+    <meta name="twitter:description" content="Discover Particel Digital Agency's achievements, happy clients, and successful projects. Leading digital solutions for businesses.">
+    <meta name="twitter:image" content="{% static 'home/images/Particel.png' %}">
+  </head>
+  <body>
+    <!-- PRE LOADER -->
+    <section class="preloader">
+      <div class="spinner"></div>
+    </section>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="{% url 'pershdev-home' %}" class="navbar-brand">ParticelAG</a>
+        <button class="navbar-toggle" id="navbarToggle">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <ul class="navbar-nav" id="navbarNav">
+          <li><a href="{% url 'pershdev-home' %}" class="smoothScroll">Home</a></li>
+          <li><a href="{% url 'achieve' %}" class="smoothScroll">Achievements</a></li>
+          <li><a href="{% url 'pershdev-cs50d' %}" class="smoothScroll">About Us</a></li>
+          <li><a href="{% url 'pershdev-home' %}" class="smoothScroll">Contact Us</a></li>
+          <li><a href="#findus" class="smoothScroll">Find Us</a></li>
+        </ul>
+        <div class="navbar-social">
+          <a href="https://www.facebook.com/particelag" target="_blank"><i class="fab fa-facebook-square"></i></a>
+          <a href="https://www.twitter.com/particelag/" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/particel.ag" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@ParticelDigitalAgency" target="_blank"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
-    </aside>
-  </section>
-  <section class="container">
-    <div class="header">
-      <h2>Loved by Our Clients</h2>
-      <p class="subheader">See what our clients are saying about Particel's digital agency services.</p>
-    </div>
-    <div class="reviews-container">
-      <div class="reviews-grid" id="reviewsGrid"></div>
-    </div>
-  </section>
-  <footer>
-    <div class="footer-background"></div>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h2>Terms and Agreements</h2>
-        <p>By accessing or utilizing any of our services, you acknowledge that you have thoroughly read, comprehended, and unconditionally accept all the terms and conditions outlined in our Terms of Service, Privacy Policy, and any other applicable agreements or policies.</p>
-      </div>
-      <div class="footer-section">
-        <div id="findus">
-        <h2>Find Us</h2>
-        <a href="https://twitter.com/particelag" target="_blank">Twitter</a>
-        <a href="https://www.instagram.com/particel.ag" target="_blank">Instagram</a>
-        <a href="https://www.youtube.com/@ParticelDigitalAgency" target="_blank">Youtube</a>
-        <a href="https://www.facebook.com/particelag" target="_blank">Facebook</a>
+      <!-- Mobile dropdown -->
+      <div class="dropdown-content" id="mobileDropdown">
+        <a href="{% url 'pershdev-home' %}">Home</a>
+        <a href="{% url 'achieve' %}">Achievements</a>
+        <a href="{% url 'pershdev-cs50d' %}">About Us</a>
+        <a href="{% url 'pershdev-home' %}">Contact Us</a>
+        <a href="#findus">Find Us</a>
+        <div class="dropdown-social">
+          <a href="https://www.facebook.com/particelag" target="_blank"><i class="fab fa-facebook-square"></i></a>
+          <a href="https://www.twitter.com/particelag/" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/particel.ag" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@ParticelDigitalAgency" target="_blank"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
-      <div class="footer-section">
-        <h2>Legal Documents</h2>
-        <a href="https://docs.google.com/document/d/1rRlOQaO2yKxXM6YloCM2jaOvsofAbVy2tB7sPGYFiZ8/edit?usp=sharing" target="_blank">Privacy Policy</a>
-        <a href="https://docs.google.com/document/d/1BHuYnVqf3jusMiQxdbLxS-uh__yVK_Q_ls4wYeW0tTk/edit?usp=sharing" target="_blank">Services Agreement</a>
-        <a href="https://docs.google.com/document/d/1PKsTCZqt5EfaIayQAc6AissLcC_CehAKhMt4oep42YE/edit?usp=sharing" target="_blank">Terms and Conditions</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="copyright-text">
-        <p>&copy; 2024 Particel Digital Agency. All rights reserved.</p>
-      </div>
-      <div class="footer-social">
-        <a href="https://www.facebook.com/particelag" target="_blank"><i class="fab fa-facebook-square"></i></a>
-        <a href="https://www.twitter.com/particelag/" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.instagram.com/particel.ag" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.youtube.com/@ParticelDigitalAgency" target="_blank"><i class="fab fa-youtube"></i></a>
-      </div>
-    </div>
-  </footer>
-  <script>
-    const reviews = [
-      {
-        name: "Alex Johnson",
-        role: "Marketing Director, Tech Solutions",
-        image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80", 
-        content: "Particel's team delivered a stunning website that perfectly captures our brand identity. We've seen a significant increase in traffic and engagement since launch!"
-      },
-      {
-        name: "Emily Davis",
-        role: "CEO, Green Energy Startup",
-        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80", 
-        content: "Particel helped us build a user-friendly web application that streamlined our internal processes and improved efficiency. Their team was a pleasure to work with!"
-      },
-      {
-        name: "Michael Brown",
-        role: "Owner, Local Bakery",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80", 
-        content: "Particel's WordPress expertise was invaluable in creating a beautiful and easy-to-manage website for our bakery. We're so happy with the results!"
-      },
-      {
-        name: "Sophia Wilson",
-        role: "Marketing Manager, Non-profit",
-        image: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80", 
-        content: "Particel's digital marketing strategies have significantly increased our online visibility and donations. Their team is knowledgeable and results-oriented."
-      },
-      {
-        name: "Daniel Garcia",
-        role: "Sales Director, Retail Company",
-        image: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80", 
-        content: "Particel's team helped us optimize our website for conversions, resulting in a significant boost in online sales. Their expertise in UX design is impressive."
-      },
-      {
-        name: "Olivia Rodriguez",
-        role: "CEO, Healthcare Startup",
-        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80", 
-        content: "Particel's team was a fantastic partner in developing our healthcare platform. They were responsive, professional, and delivered a high-quality product."
-      },
-      {
-        name: "Ethan Martinez",
-        role: "Project Manager, Construction Firm",
-        image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-        content: "Particel's team created a robust and user-friendly website for our construction firm, showcasing our projects and expertise effectively."
-      },
-      {
-        name: "Ava Wilson",
-        role: "Marketing Director, Educational Institute",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-        content: "Particel's digital marketing strategy helped us reach a wider audience and increase student enrollment. Their team is creative and dedicated."
-      },
-      {
-        name: "Noah Garcia",
-        role: "Owner, Law Firm",
-        image: "https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=699&q=80",
-        content: "Particel designed a professional and informative website for our law firm, helping us attract new clients and establish credibility online."
-      },
-      {
-        name: "Isabella Rodriguez",
-        role: "Marketing Manager, Manufacturing Company",
-        image: "https://images.unsplash.com/photo-1619895862022-09114b41f16f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        content: "Particel's team provided excellent digital marketing services, increasing our brand awareness and lead generation significantly."
-      },
-      {
-        name: "Liam Wilson",
-        role: "CEO, Tech Startup",
-        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-        content: "Particel's expertise in UI/UX design was crucial in creating a user-friendly and engaging mobile app for our startup. We highly recommend their services!"
-      },
-      {
-        name: "Mia Garcia",
-        role: "Owner, E-commerce Store",
-        image: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-        content: "Particel helped us build a high-performing e-commerce website that has boosted our online sales and customer satisfaction. Their team is professional and dedicated."
-      },
-      {
-        name: "James Martinez",
-        role: "Marketing Manager, Travel Agency",
-        image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        content: "Particel's team created a visually stunning and informative website for our travel agency, showcasing our destinations and services beautifully."
-      },
-      {
-        name: "Charlotte Wilson",
-        role: "Owner, Restaurant",
-        image: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-        content: "Particel's web design expertise helped us create an online presence that reflects the unique atmosphere and delicious food of our restaurant."
-      },
-      {
-        name: "Benjamin Garcia",
-        role: "Project Manager, Construction Company",
-        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-        content: "Particel's team delivered a professional and informative website for our construction company, highlighting our projects and expertise."
-      },
-      {
-        name: "Amelia Wilson",
-        role: "Marketing Director, Healthcare Provider",
-        image: "https://images.unsplash.com/photo-1622917283593-009e0a712b03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-        content: "Particel's digital marketing strategy has helped us reach more patients and establish our healthcare practice as a leader in the community."
-      },
-      {
-        name: "Lucas Garcia",
-        role: "Owner, Real Estate Agency",
-        image: "https://images.unsplash.com/photo-1547425260-76bcadfb4f4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        content: "Particel created a user-friendly website for our real estate agency, showcasing our property listings in an attractive and easy-to-navigate format."
-      },
-      {
-        name: "Harper Wilson",
-        role: "CEO, Financial Services Firm",
-        image: "https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-        content: "Particel's team designed a professional and trustworthy website for our financial services firm, helping us build credibility and attract new clients."
-      },
-      {
-        name: "Elijah Garcia",
-        role: "Marketing Manager, Educational Institute",
-        image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        content: "Particel's digital marketing expertise helped us increase student enrollment and improve communication with our community."
-      },
-      {
-        name: "Evelyn Wilson",
-        role: "Owner, Law Firm",
-        image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-        content: "Particel's team created a modern and informative website for our law firm, showcasing our expertise and services effectively."
-      },
-      {
-        name: "Sebastian Garcia",
-        role: "Marketing Director, Manufacturing Company",
-        image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80",
-        content: "Particel's digital marketing strategies helped us reach new customers and increase brand awareness in the manufacturing industry."
-      },
-      {
-        name: "Abigail Wilson",
-        role: "CEO, Tech Startup",
-        image: "https://images.unsplash.com/photo-1582233631309-11c92b52304a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
-        content: "Particel's team was instrumental in developing our innovative mobile app. Their expertise in UI/UX and development is top-notch."
-      },
-      {
-        name: "Alexander Garcia",
-        role: "Owner, E-commerce Store",
-        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        content: "Particel helped us create a user-friendly and visually appealing e-commerce website that has significantly boosted our online sales."
-      },
-      {
-        name: "Scarlett Wilson",
-        role: "Marketing Manager, Travel Agency",
-        image: "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=736&q=80",
-        content: "Particel's team designed a stunning website that showcases our travel destinations and services in a captivating way."
-      },
-      {
-        name: "Henry Garcia",
-        role: "Owner, Restaurant",
-        image: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca65?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        content: "Particel's web design expertise helped us create an online presence that reflects the unique atmosphere and delicious food of our restaurant."
-      },
-      {
-        name: "Samantha Wilson",
-        role: "Project Manager, Construction Company",
-        image: "https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-        content: "Particel's team delivered a professional and informative website for our construction company, highlighting our projects and expertise."
-      },
-      {
-        name: "David Garcia",
-        role: "Marketing Director, Healthcare Provider",
-        image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-        content: "Particel's digital marketing strategy has helped us reach more patients and establish our healthcare practice as a leader in the community."
-      },
-      {
-        name: "Chloe Wilson",
-        role: "Owner, Real Estate Agency",
-        image: "https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80",
-        content: "Particel created a user-friendly website for our real estate agency, showcasing our property listings in an attractive and easy-to-navigate format."
-      },
-      {
-        name: "Joseph Garcia",
-        role: "CEO, Financial Services Firm",
-        image: "https://images.unsplash.com/photo-1504593811423-6dd665756598?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        content: "Particel's team designed a professional and trustworthy website for our financial services firm, helping us build credibility and attract new clients."
-      },
-      {
-        name: "Eleanor Wilson",
-        role: "Marketing Manager, Educational Institute",
-        image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q80",
-        content: "Particel's digital marketing expertise helped us increase student enrollment and improve communication with our community."
-      },
-      {
-        name: "Jackson Garcia",
-        role: "Owner, Law Firm",
-        image: "https://images.unsplash.com/photo-1527980965255-d3e401cef7f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-        content: "Particel designed a professional and informative website for our law firm, helping us attract new clients and establish credibility online."
-      },
-      {
-        name: "Aaliyah Wilson",
-        role: "Marketing Director, Manufacturing Company",
-        image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        content: "Particel's team provided excellent digital marketing services, increasing our brand awareness and lead generation significantly."
-      },
-      {
-        name: "Grayson Garcia",
-        role: "CEO, Tech Startup",
-        image: "https://images.unsplash.com/photo-1610271340738-726e199f0258?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80",
-        content: "Particel's expertise in UI/UX design was crucial in creating a user-friendly and engaging mobile app for our startup. We highly recommend their services!"
-      },
-      {
-        name: "Ellie Wilson",
-        role: "Owner, E-commerce Store",
-        image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-        content: "Particel helped us build a high-performing e-commerce website that has boosted our online sales and customer satisfaction. Their team is professional and dedicated."
-      }
-    ];
-
-    const reviewsGrid = document.getElementById('reviewsGrid');
-    let currentIndex = 0;
-    const reviewsPerPage = 6;
-
-    function createReviewCard(review) {
-      return `
-        <article class="review-card"> 
-          <div class="review-header">
-            <img src="${review.image}" alt="${review.name}" class="review-image"> 
-            <div>
-              <div class="review-author">${review.name}</div>
-              <div class="review-role">${review.role}</div>
+    </nav>
+    <section class="container2">
+      <aside class="achievements-container">
+        <div class="achievements">
+          <div class="achievement happy">
+            <i class="fas fa-smile-beam"></i>
+            <div class="number-container">
+              <span class="number" data-target="50">0</span>
+              <span class="symbol">+</span>
             </div>
+            <h3>Happy Clients</h3>
+            <p>Trust us with their projects.</p>
           </div>
-          <div class="review-content">${review.content}</div>
-        </article>
-      `;
-    }
-
-    function updateReviews() {
-      const currentReviews = reviewsGrid.querySelectorAll('.review-card');
-      currentReviews.forEach(review => {
-        review.classList.remove('fade-in'); // Remove fade-in class first
-        review.classList.add('fade-out');
-      });
-
-      setTimeout(() => {
-        let newGridHTML = '';
-        for (let i = 0; i < reviewsPerPage; i++) {
-          const reviewIndex = (currentIndex + i) % reviews.length;
-          newGridHTML += createReviewCard(reviews[reviewIndex]);
-        }
-
-        reviewsGrid.innerHTML = newGridHTML;
-
-        const newReviews = reviewsGrid.querySelectorAll('.review-card');
-        newReviews.forEach(review => {
-          review.classList.add('fade-in');
-        });
-
-        currentIndex = (currentIndex + reviewsPerPage) % reviews.length;
-      }, 500); 
-    }
-
-    // Counter Animation
-    document.addEventListener('DOMContentLoaded', () => {
-      const counters = document.querySelectorAll('.number');
-      counters.forEach(counter => {
-        const target = +counter.getAttribute('data-target');
-        let count = 0;
-        const increment = target / 200; 
-
-        const updateCounter = () => {
-          count += increment;
-          counter.innerText = Math.ceil(count);
-          if (count < target) {
-            requestAnimationFrame(updateCounter);
-          } else {
-            counter.innerText = target; 
-          }
-        };
-
-        updateCounter();
-      });
-    });
-
-    updateReviews();
-    setInterval(updateReviews, 9000); 
-  </script>
-  <!-- SCRIPTS -->
-  <script src="{% static 'home/js/jquery.js' %}"></script>
-  <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
-  <script src="{% static 'home/js/jquery.stellar.min.js' %}"></script>
-  <script src="{% static 'home/js/jquery.magnific-popup.min.js' %}"></script>
-  <script src="{% static 'home/js/smoothscroll.js' %}"></script>
-  <script src="{% static 'home/js/custom.js' %}"></script>
-</body>
+          <div class="achievement successful">
+            <i class="fas fa-project-diagram"></i>
+            <div class="number-container">
+              <span class="number" data-target="60">0</span>
+              <span class="symbol">+</span>
+            </div>
+            <h3>Successful Projects</h3>
+            <p>Completed with excellence.</p>
+          </div>
+          <div class="achievement trusted">
+            <i class="fas fa-handshake"></i>
+            <div class="number-container">
+              <span class="number" data-target="10">0</span>
+              <span class="symbol">+</span>
+            </div>
+            <h3>Trusted Partners</h3>
+            <p>Leading companies in the industry.</p>
+          </div>
+          <div class="achievement satisfied">
+            <i class="fas fa-thumbs-up"></i>
+            <div class="number-container">
+              <span class="number" data-target="90">0</span>
+              <span class="symbol">%</span>
+            </div>
+            <h3>Satisfied Customers</h3>
+            <p>Rate our services highly.</p>
+          </div>
+        </div>
+      </aside>
+    </section>
+    <section class="container">
+      <div class="header">
+        <h2>Loved by Our Clients</h2>
+        <p class="subheader">See what our clients are saying about Particel's digital agency services.</p>
+      </div>
+      <div class="reviews-container">
+        <div class="reviews-grid" id="reviewsGrid"></div>
+      </div>
+    </section>
+    <footer>
+      <div class="footer-background"></div>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h2>Terms and Agreements</h2>
+          <p>By accessing or utilizing any of our services, you acknowledge that you have thoroughly read, comprehended, and unconditionally accept all the terms and conditions outlined in our Terms of Service, Privacy Policy, and any other applicable agreements or policies.</p>
+        </div>
+        <div class="footer-section">
+          <div id="findus">
+            <h2>Find Us</h2>
+            <a href="https://twitter.com/particelag" target="_blank">Twitter</a>
+            <a href="https://www.instagram.com/particel.ag" target="_blank">Instagram</a>
+            <a href="https://www.youtube.com/@ParticelDigitalAgency" target="_blank">Youtube</a>
+            <a href="https://www.facebook.com/particelag" target="_blank">Facebook</a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h2>Legal Documents</h2>
+          <a href="https://docs.google.com/document/d/1rRlOQaO2yKxXM6YloCM2jaOvsofAbVy2tB7sPGYFiZ8/edit?usp=sharing" target="_blank">Privacy Policy</a>
+          <a href="https://docs.google.com/document/d/1BHuYnVqf3jusMiQxdbLxS-uh__yVK_Q_ls4wYeW0tTk/edit?usp=sharing" target="_blank">Services Agreement</a>
+          <a href="https://docs.google.com/document/d/1PKsTCZqt5EfaIayQAc6AissLcC_CehAKhMt4oep42YE/edit?usp=sharing" target="_blank">Terms and Conditions</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="copyright-text">
+          <p>&copy; 2024 Particel Digital Agency. All rights reserved.</p>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/particelag" target="_blank">
+            <i class="fab fa-facebook-square"></i>
+          </a>
+          <a href="https://www.twitter.com/particelag/" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.instagram.com/particel.ag" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.youtube.com/@ParticelDigitalAgency" target="_blank">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script src="{% static 'home/js/achievment.js' %}"></script>
+    <script src="{% static 'home/js/jquery.js' %}"></script>
+    <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'home/js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'home/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'home/js/smoothscroll.js' %}"></script>
+    <script src="{% static 'home/js/custom.js' %}"></script>
+  </body>
 </html>

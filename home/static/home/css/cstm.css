@@ -5558,9 +5558,6 @@ button.close{
 .hide{
     display:none!important
 }
-.show{
-    display:block!important
-}
 .invisible{
     visibility:hidden
 }
@@ -5768,4 +5765,3 @@ button.close{
         display:none!important
     }
 }
- 

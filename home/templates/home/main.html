@@ -1,509 +1,662 @@
 {% load static %}
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        {% block title %}{% endblock title %}
-        <meta name="description" content="This is Arman Gholinezhad portfolio website, Checkout my work and projects. Hope we have great time working with each other">
-        <meta name="author" content="Arman Gholinezhad">
-        <link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}">
-        <link rel="icon" href="{% static 'home/images/Particel.png' %}" type="image/icon type">
-        <style>
-          body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0b1957;
-            color: #0b1957;
-            line-height: 1.6;
-            overflow-x: hidden;
-          }
-      
-          .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-          }
-      
-          .header {
-            text-align: center;
-            margin-bottom: 40px;
-            background: linear-gradient(to right, #9eccfa, #0b1957);
-            padding: 20px;
-            border-radius: 12px;
-            color: white;
-          }
-      
-          .navbar {
-            background-color: rgba(11, 25, 87, 0.95);
-            padding: 15px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1030;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-          }
-      
-          .navbar-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-          }
-      
-          .navbar-brand {
-            font-weight: 700;
-            color: #f8f3ea;
-            text-decoration: none;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-          }
-      
-          .navbar-brand:hover {
-            color: #9eccfa;
-          }
-      
-          .navbar-nav {
-            display: flex;
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-          }
-      
-          .navbar-nav > li > a {
-            color: #f8f3ea;
-            font-size: 1rem;
-            padding: 8px 15px;
-            text-decoration: none;
-            transition: color 0.3s ease, background-color 0.3s ease;
-            border-radius: 5px;
-          }
-      
-          .navbar-nav > li > a:hover,
-          .navbar-nav > li > a:focus {
-            color: #9eccfa;
-            background-color: rgba(158, 204, 250, 0.1);
-          }
-      
-          .navbar-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-          }
-      
-          .icon-bar {
-            display: block;
-            width: 22px;
-            height: 2px;
-            background-color: #f8f3ea;
-            margin: 4px 0;
-            transition: all 0.3s ease;
-          }
-      
-          .navbar-social {
-            display: flex;
-            align-items: center;
-          }
-      
-          .navbar-social a {
-            color: #f8f3ea;
-            font-size: 1.2rem;
-            margin-left: 15px;
-            transition: color 0.3s ease;
-          }
-      
-          .navbar-social a:hover {
-            color: #9eccfa;
-          }
-      
-          @media (max-width: 768px) {
-            .navbar-nav {
-              display: none;
-              flex-direction: column;
-              width: 100%;
-              position: absolute;
-              top: 100%;
-              left: 0;
-              background-color: rgba(11, 25, 87, 0.95);
-              padding: 10px 0;
-            }
-      
-            .navbar-nav.show {
-              display: flex;
-            }
-      
-            .navbar-toggle {
-              display: block;
-            }
-      
-            .navbar-social {
-              display: none;
-            }
-          }
-      
-          footer {
-            background-color: #0b1957;
-            color: #f8f3ea;
-            padding: 60px 0 30px;
-            position: relative;
-            overflow: hidden;
-          }
-      
-          .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 1;
-          }
-      
-          .footer-section {
-            flex: 1;
-            margin-right: 40px;
-            margin-bottom: 30px;
-            min-width: 200px;
-          }
-      
-          .footer-section:last-child {
-            margin-right: 0;
-          }
-      
-          .footer-section h2 {
-            color: #9eccfa;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-          }
-      
-          .footer-section h2::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 2px;
-            background-color: #9eccfa;
-          }
-      
-          .footer-section p,
-          .footer-section a {
-            color: #e6d8c7;
-            line-height: 1.6;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-            transition: color 0.3s ease;
-          }
-      
-          .footer-section a:hover {
-            color: #9eccfa;
-          }
-      
-          .footer-bottom {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(230, 216, 199, 0.1);
-          }
-      
-          .copyright-text {
-            color: #e6d8c7;
-            font-size: 0.9rem;
-          }
-      
-          .footer-social {
-            margin-top: 20px;
-          }
-      
-          .footer-social a {
-            color: #e6d8c7;
-            font-size: 1.5rem;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-          }
-      
-          .footer-social a:hover {
-            color: #9eccfa;
-          }
-      
-          @media (max-width: 768px) {
-            .footer-content {
-              flex-direction: column;
-            }
-      
-            .footer-section {
-              margin-right: 0;
-            }
-          }
-      
-          h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            letter-spacing: -1px;
-          }
-      
-          .subheader {
-            font-size: 1.1rem;
-            max-width: 680px;
-            margin: 0 auto;
-            opacity: 0.9;
-          }
-      
-          .reviews-container {
-            position: relative;
-          }
-      
-          .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-          }
-      
-          .review-card {
-            background-color: rgba(230, 216, 199, 0.1);
-            border-radius: 12px;
-            padding: 20px;
-            color: #f8f3ea;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-          }
-      
-          .review-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-          }
-      
-          .review-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-          }
-      
-          .review-image {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 15px;
-            object-fit: cover;
-            border: 2px solid #9eccfa;
-          }
-      
-          .review-author {
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 4px;
-          }
-      
-          .review-role {
-            font-size: 0.85rem;
-            opacity: 0.8;
-          }
-      
-          .review-content {
-            font-size: 0.95rem;
-            line-height: 1.6;
-          }
-      
-          .achievements-container {
-            background: linear-gradient(90deg, #9eccfa, #e6d8c7, #0b1957, #f8f3ea);
-            background-size: 400% 100%;
-            animation: gradient 15s ease infinite;
-            padding: 40px 20px;
-            border-radius: 15px;
-            margin: 30px auto;
-            max-width: 1200px;
-          }
-      
-          @keyframes gradient {
-            0% {
-              background-position: 0% 50%;
-            }
-            50% {
-              background-position: 100% 50%;
-            }
-            100% {
-              background-position: 0% 50%;
-            }
-          }
-      
-          .achievements {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
-          }
-      
-          .achievement {
-            text-align: center;
-            padding: 30px 20px;
-            border-radius: 10px;
-            background-color: rgba(11, 25, 87, 0.8);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-            flex: 1;
-            transition: transform 0.2s ease;
-            min-width: 220px;
-          }
-      
-          .achievement:hover {
-            transform: translateY(-5px);
-          }
-      
-          .achievement i {
-            font-size: 40px;
-            margin-bottom: 10px;
-            color: #9eccfa;
-          }
-      
-          .achievement .number {
-            font-size: 30px;
-            font-weight: bold;
-            color: #f8f3ea;
-            margin-bottom: 10px;
-          }
-      
-          .achievement h3 {
-            font-size: 1.8rem;
-            margin: 0 0 10px 0;
-            color: #f8f3ea;
-          }
-      
-          .achievement p {
-            font-size: 1rem;
-            line-height: 1.5;
-            color: #e6d8c7;
-          }
-      
-          @media (max-width: 768px) {
-            .achievements {
-              flex-direction: column;
-              align-items: center;
-            }
-      
-            .achievement {
-              width: 100%;
-              max-width: 300px;
-              margin-bottom: 20px;
-            }
-      
-            .reviews-grid {
-              grid-template-columns: 1fr;
-            }
-          }
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Particel Digital Agency - Professional Web Development and Digital Marketing Services</title>
+    <meta name="description" content="Particel Digital Agency offers expert web development, digital marketing, and SEO services. Boost your online presence with our tailored solutions.">
+    <meta name="author" content="Arman Gholinezhad">
+    <meta name="keywords" content="digital agency, web development, SEO, digital marketing, Particel AG">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.particelag.com/">
+    <meta property="og:title" content="Particel Digital Agency - Professional Web Development and Digital Marketing Services">
+    <meta property="og:description" content="Boost your online presence with Particel Digital Agency's expert web development, digital marketing, and SEO services.">
+    <meta property="og:image" content="{% static 'home/images/particel-og-image.jpg' %}">
 
-          /* Preloader styles */
-          .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #0b1957;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-          }
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.particelag.com/">
+    <meta property="twitter:title" content="Particel Digital Agency - Professional Web Development and Digital Marketing Services">
+    <meta property="twitter:description" content="Boost your online presence with Particel Digital Agency's expert web development, digital marketing, and SEO services.">
+    <meta property="twitter:image" content="{% static 'home/images/particel-twitter-image.jpg' %}">
 
-          .spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid #f8f3ea;
-            border-top: 3px solid #9eccfa;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-          }
+    <link rel="canonical" href="https://www.particelag.com/">
+    <link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}">
+    <link rel="icon" href="{% static 'home/images/Particel.png' %}" type="image/png">
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
 
-          @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-          }
-        </style>
-        <script src="https://kit.fontawesome.com/b9928a934b.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-     <!-- PRE LOADER -->
-     <div class="preloader">
-          <div class="spinner"></div>
-     </div>
-     <nav class="navbar">
-          <div class="navbar-container">
-            <a href="{% url 'pershdev-home' %}" class="navbar-brand">ParticelAG</a>
-            <button class="navbar-toggle" id="navbarToggle">   
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <ul class="navbar-nav" id="navbarNav">
-              <li><a href="{% url 'pershdev-home' %}" class="smoothScroll">Home</a></li>
-              <li><a href="{% url 'achieve' %}" class="smoothScroll">Achievements</a></li>
-              <li><a href="{% url 'pershdev-cs50d' %}" class="smoothScroll">About Us</a></li>
-              <li><a href="{% url 'pershdev-home' %}" class="smoothScroll">Contact Us</a></li>
-              <li><a href="#findus" class="smoothScroll">Find Us</a></li>
-            </ul>
-            <div class="navbar-social">
-              <a href="https://www.facebook.com/particelag" target="_blank"><i class="fab fa-facebook-square"></i></a>
-              <a href="https://www.twitter.com/particelag/" target="_blank"><i class="fab fa-twitter"></i></a>
-              <a href="https://www.instagram.com/particel.ag" target="_blank"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.youtube.com/@ParticelDigitalAgency" target="_blank"><i class="fab fa-youtube"></i></a>
-            </div>
-          </div>
-        </nav>
-        {% block project %} {% endblock project %}
-        {% block cs50d %}{% endblock cs50d %}
-        <footer>
-          <div class="footer-content">
-            <div class="footer-section">
-              <h2>Terms and Agreements</h2>
-              <p>By accessing or utilizing any of our services, you acknowledge that you have thoroughly read, comprehended, and unconditionally accept all the terms and conditions outlined in our Terms of Service, Privacy Policy, and any other applicable agreements or policies.</p>
-            </div>
-            <div class="footer-section">
-              <h2>Find Us</h2>
-              <a href="https://twitter.com/particelag" target="_blank">Twitter</a>
-              <a href="https://www.instagram.com/particel.ag" target="_blank">Instagram</a>
-              <a href="https://www.youtube.com/@ParticelDigitalAgency" target="_blank">Youtube</a>
-              <a href="https://www.facebook.com/particelag" target="_blank">Facebook</a>
-            </div>
-            <div class="footer-section">
-              <h2>Legal Documents</h2>
-              <a href="https://docs.google.com/document/d/1rRlOQaO2yKxXM6YloCM2jaOvsofAbVy2tB7sPGYFiZ8/edit?usp=sharing" target="_blank">Privacy Policy</a>
-              <a href="https://docs.google.com/document/d/1BHuYnVqf3jusMiQxdbLxS-uh__yVK_Q_ls4wYeW0tTk/edit?usp=sharing" target="_blank">Services Agreement</a>
-              <a href="https://docs.google.com/document/d/1PKsTCZqt5EfaIayQAc6AissLcC_CehAKhMt4oep42YE/edit?usp=sharing" target="_blank">Terms and Conditions</a>
-            </div>
-          </div>
-          <div class="footer-bottom">
-            <div class="copyright-text">
-              <p>&copy; 2024 Particel Digital Agency. All rights reserved.</p>
-            </div>
-            <div class="footer-social">
-              <a href="https://www.facebook.com/particelag" target="_blank"><i class="fab fa-facebook-square"></i></a>
-              <a href="https://www.twitter.com/particelag/" target="_blank"><i class="fab fa-twitter"></i></a>
-              <a href="https://www.instagram.com/particel.ag" target="_blank"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.youtube.com/@ParticelDigitalAgency" target="_blank"><i class="fab fa-youtube"></i></a>
-            </div>
-          </div>
-        </footer>
-        <script src="{% static 'home/js/jquery.js' %}"></script>
-        <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
-        <script src="{% static 'home/js/jquery.stellar.min.js' %}"></script>
-        <script src="{% static 'home/js/smoothscroll.js' %}"></script>
-        <script src="{% static 'home/js/custom.js' %}"></script>
-        <script>
-          // Preloader script
-          window.addEventListener('load', function() {
-            setTimeout(function() {
-              document.querySelector('.preloader').style.display = 'none';
-            }, 3000);
+      body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #0b1957;
+        color: #0b1957;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 40px;
+        background: linear-gradient(to right, #9eccfa, #0b1957);
+        padding: 20px;
+        border-radius: 12px;
+        color: white;
+      }
+
+      .navbar {
+        background-color: rgba(11, 25, 87, 0.95);
+        padding: 15px 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1030;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        color: #f8f3ea;
+        text-decoration: none;
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
+      }
+
+      .navbar-brand:hover {
+        color: #9eccfa;
+      }
+
+      .navbar-nav {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar-nav>li>a {
+        color: #f8f3ea;
+        font-size: 1rem;
+        padding: 8px 15px;
+        text-decoration: none;
+        transition: color 0.3s ease, background-color 0.3s ease;
+        border-radius: 5px;
+      }
+
+      .navbar-nav>li>a:hover,
+      .navbar-nav>li>a:focus {
+        color: #9eccfa;
+        background-color: rgba(158, 204, 250, 0.1);
+      }
+
+      .navbar-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+      }
+
+      .icon-bar {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background-color: #f8f3ea;
+        margin: 4px 0;
+        transition: all 0.3s ease;
+      }
+
+      .navbar-social {
+        display: flex;
+        align-items: center;
+      }
+
+      .navbar-social a {
+        color: #f8f3ea;
+        font-size: 1.2rem;
+        margin-left: 15px;
+        transition: color 0.3s ease;
+      }
+
+      .navbar-social a:hover {
+        color: #9eccfa;
+      }
+
+      @media (max-width: 768px) {
+        .navbar-nav, .navbar-social {
+          display: none;
+        }
+
+        .navbar-toggle {
+          display: block;
+        }
+
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background-color: rgba(11, 25, 87, 0.95);
+          box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+          z-index: 1;
+        }
+
+        .dropdown-content a {
+          color: #f8f3ea;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+          text-align: left;
+        }
+
+        .dropdown-content a:hover {
+          background-color: rgba(158, 204, 250, 0.1);
+          color: #9eccfa;
+        }
+
+        .dropdown-social {
+          display: flex;
+          justify-content: center;
+          padding: 12px 0;
+        }
+
+        .dropdown-social a {
+          color: #f8f3ea;
+          font-size: 1.2rem;
+          margin: 0 10px;
+          padding: 0;
+        }
+
+        .dropdown-social a:hover {
+          background-color: transparent;
+          color: #9eccfa;
+        }
+
+        .show {
+          display: block;
+        }
+      }
+
+      @media (min-width: 769px) {
+        .dropdown-content {
+          display: none !important;
+        }
+      }
+
+      footer {
+        background-color: #0b1957;
+        color: #f8f3ea;
+        padding: 60px 0 30px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .footer-section {
+        flex: 1;
+        margin-right: 40px;
+        margin-bottom: 30px;
+        min-width: 200px;
+      }
+
+      .footer-section:last-child {
+        margin-right: 0;
+      }
+
+      .footer-section h2 {
+        color: #9eccfa;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .footer-section h2::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 2px;
+        background-color: #9eccfa;
+      }
+
+      .footer-section p,
+      .footer-section a {
+        color: #e6d8c7;
+        line-height: 1.6;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 10px;
+        transition: color 0.3s ease;
+      }
+
+      .footer-section a:hover {
+        color: #9eccfa;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(230, 216, 199, 0.1);
+      }
+
+      .copyright-text {
+        color: #e6d8c7;
+        font-size: 0.9rem;
+      }
+
+      .footer-social {
+        margin-top: 20px;
+      }
+
+      .footer-social a {
+        color: #e6d8c7;
+        font-size: 1.5rem;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+      }
+
+      .footer-social a:hover {
+        color: #9eccfa;
+      }
+
+      @media (max-width: 768px) {
+        .footer-content {
+          flex-direction: column;
+        }
+
+        .footer-section {
+          margin-right: 0;
+        }
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        letter-spacing: -1px;
+      }
+
+      .subheader {
+        font-size: 1.1rem;
+        max-width: 680px;
+        margin: 0 auto;
+        opacity: 0.9;
+      }
+
+      .reviews-container {
+        position: relative;
+      }
+
+      .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .review-card {
+        background-color: rgba(230, 216, 199, 0.1);
+        border-radius: 12px;
+        padding: 20px;
+        color: #f8f3ea;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .review-card:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .review-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .review-image {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+        object-fit: cover;
+        border: 2px solid #9eccfa;
+      }
+
+      .review-author {
+        font-weight: 700;
+        font-size: 1rem;
+        margin-bottom: 4px;
+      }
+
+      .review-role {
+        font-size: 0.85rem;
+        opacity: 0.8;
+      }
+
+      .review-content {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .achievements-container {
+        background: linear-gradient(90deg, #9eccfa, #e6d8c7, #0b1957, #f8f3ea);
+        background-size: 400% 100%;
+        animation: gradient 15s ease infinite;
+        padding: 40px 20px;
+        border-radius: 15px;
+        margin: 30px auto;
+        max-width: 1200px;
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+
+        50% {
+          background-position: 100% 50%;
+        }
+
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .achievements {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .achievement {
+        text-align: center;
+        padding: 30px 20px;
+        border-radius: 10px;
+        background-color: rgba(11, 25, 87, 0.8);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        flex: 1;
+        transition: transform 0.2s ease;
+        min-width: 220px;
+      }
+
+      .achievement:hover {
+        transform: translateY(-5px);
+      }
+
+      .achievement i {
+        font-size: 40px;
+        margin-bottom: 10px;
+        color: #9eccfa;
+      }
+
+      .achievement .number {
+        font-size: 30px;
+        font-weight: bold;
+        color: #f8f3ea;
+        margin-bottom: 10px;
+      }
+
+      .achievement h3 {
+        font-size: 1.8rem;
+        margin: 0 0 10px 0;
+        color: #f8f3ea;
+      }
+
+      .achievement p {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #e6d8c7;
+      }
+
+      @media (max-width: 768px) {
+        .achievements {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .achievement {
+          width: 100%;
+          max-width: 300px;
+          margin-bottom: 20px;
+        }
+
+        .reviews-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Preloader styles */
+      .preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #0b1957;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+
+      .spinner {
+        width: 50px;
+        height: 50px;
+        border: 3px solid #f8f3ea;
+        border-top: 3px solid #9eccfa;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <script src="https://kit.fontawesome.com/b9928a934b.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!-- PRE LOADER -->
+    <section class="preloader">
+      <div class="spinner"></div>
+    </section>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="{% url 'pershdev-home' %}" class="navbar-brand">ParticelAG</a>
+        <button class="navbar-toggle" id="navbarToggle">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <ul class="navbar-nav" id="navbarNav">
+          <li><a href="{% url 'pershdev-home' %}" class="smoothScroll">Home</a></li>
+          <li><a href="{% url 'achieve' %}" class="smoothScroll">Achievements</a></li>
+          <li><a href="{% url 'pershdev-cs50d' %}" class="smoothScroll">About Us</a></li>
+          <li><a href="{% url 'pershdev-home' %}" class="smoothScroll">Contact Us</a></li>
+          <li><a href="#findus" class="smoothScroll">Find Us</a></li>
+        </ul>
+        <div class="navbar-social">
+          <a href="https://www.facebook.com/particelag" target="_blank"><i class="fab fa-facebook-square"></i></a>
+          <a href="https://www.twitter.com/particelag/" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/particel.ag" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@ParticelDigitalAgency" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <!-- Mobile dropdown -->
+      <div class="dropdown-content" id="mobileDropdown">
+        <a href="{% url 'pershdev-home' %}">Home</a>
+        <a href="{% url 'achieve' %}">Achievements</a>
+        <a href="{% url 'pershdev-cs50d' %}">About Us</a>
+        <a href="{% url 'pershdev-home' %}">Contact Us</a>
+        <a href="#findus">Find Us</a>
+        <div class="dropdown-social">
+          <a href="https://www.facebook.com/particelag" target="_blank"><i class="fab fa-facebook-square"></i></a>
+          <a href="https://www.twitter.com/particelag/" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/particel.ag" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@ParticelDigitalAgency" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </nav> {% block project %} {% endblock project %} {% block cs50d %}{% endblock cs50d %} <footer id="findus">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h2>Terms and Agreements</h2>
+          <p>By accessing or utilizing any of our services, you acknowledge that you have thoroughly read, comprehended, and unconditionally accept all the terms and conditions outlined in our Terms of Service, Privacy Policy, and any other applicable agreements or policies.</p>
+        </div>
+        <div class="footer-section">
+          <h2>Find Us</h2>
+          <a href="https://twitter.com/particelag" target="_blank">Twitter</a>
+          <a href="https://www.instagram.com/particel.ag" target="_blank">Instagram</a>
+          <a href="https://www.youtube.com/@ParticelDigitalAgency" target="_blank">Youtube</a>
+          <a href="https://www.facebook.com/particelag" target="_blank">Facebook</a>
+        </div>
+        <div class="footer-section">
+          <h2>Legal Documents</h2>
+          <a href="https://docs.google.com/document/d/1rRlOQaO2yKxXM6YloCM2jaOvsofAbVy2tB7sPGYFiZ8/edit?usp=sharing" target="_blank">Privacy Policy</a>
+          <a href="https://docs.google.com/document/d/1BHuYnVqf3jusMiQxdbLxS-uh__yVK_Q_ls4wYeW0tTk/edit?usp=sharing" target="_blank">Services Agreement</a>
+          <a href="https://docs.google.com/document/d/1PKsTCZqt5EfaIayQAc6AissLcC_CehAKhMt4oep42YE/edit?usp=sharing" target="_blank">Terms and Conditions</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="copyright-text">
+          <p>&copy; 2024 Particel Digital Agency. All rights reserved.</p>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/particelag" target="_blank">
+            <i class="fab fa-facebook-square"></i>
+          </a>
+          <a href="https://www.twitter.com/particelag/" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.instagram.com/particel.ag" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.youtube.com/@ParticelDigitalAgency" target="_blank">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <script src="{% static 'home/js/jquery.js' %}"></script>
+    <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'home/js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'home/js/smoothscroll.js' %}"></script>
+    <script src="{% static 'home/js/custom.js' %}"></script>
+    <script>
+      // Preloader script
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          document.querySelector('.preloader').style.display = 'none';
+        }, 3000);
+      });
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
           });
-        </script>
-    </body>
+        });
+      });
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+    </script>
+        <script>
+          function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('navbarMobileMenu');
+            mobileMenu.classList.toggle('show');
+          }
+    
+          document.getElementById('navbarToggle').addEventListener('click', toggleMobileMenu);
+    </script>
+    <script>
+      // Updated script for toggling the mobile dropdown and hiding desktop navbar
+      document.addEventListener('DOMContentLoaded', function() {
+        const navbarToggle = document.getElementById('navbarToggle');
+        const mobileDropdown = document.getElementById('mobileDropdown');
+        const navbarNav = document.getElementById('navbarNav');
+        const navbarSocial = document.querySelector('.navbar-social');
+
+        navbarToggle.addEventListener('click', function() {
+          mobileDropdown.classList.toggle('show');
+          if (mobileDropdown.classList.contains('show')) {
+            navbarNav.style.display = 'none';
+            navbarSocial.style.display = 'none';
+          } else {
+            navbarNav.style.display = '';
+            navbarSocial.style.display = '';
+          }
+        });
+
+        // Close the dropdown when clicking outside of it
+        window.addEventListener('click', function(event) {
+          if (!event.target.matches('.navbar-toggle') && !event.target.matches('.icon-bar')) {
+            if (mobileDropdown.classList.contains('show')) {
+              mobileDropdown.classList.remove('show');
+              navbarNav.style.display = '';
+              navbarSocial.style.display = '';
+            }
+          }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+          if (window.innerWidth > 768) {
+            mobileDropdown.classList.remove('show');
+            navbarNav.style.display = '';
+            navbarSocial.style.display = '';
+          }
+        });
+      });
+    </script>
+  </body>
 </html>

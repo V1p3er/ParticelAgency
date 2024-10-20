@@ -2,255 +2,36 @@
 <!DOCTYPE html>
 <html lang="en">
      <head>
-          <title>Particel Digital Agency</title>
+          <title>ParticleAG: Expert Web & App Development, Digital Marketing, and Sales Solutions</title>
           <meta charset="UTF-8">
-          <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-          <meta name="description" content="Expert in web and app development, digital marketing, and sales solutions. We turn your vision into reality with innovative and detailed-driven strategies. Discover unparalleled digital solutions with ParticleAG.">
-          <meta name="keywords" content="Web development, Backend, Frontend, Database management, programming Agency">
-          <meta name="author" content="Particel Team">
           <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+          <meta name="description" content="ParticleAG offers cutting-edge web and app development, impactful digital marketing, and effective sales strategies. Transform your digital presence with our innovative solutions.">
+          <meta name="keywords" content="Web development, App development, Digital marketing, Sales solutions, ParticleAG, Digital innovation">
+          <meta name="author" content="ParticleAG Team">
+          
+          <!-- Open Graph / Facebook -->
+          <meta property="og:type" content="website">
+          <meta property="og:url" content="https://www.particeldigital.agency/">
+          <meta property="og:title" content="ParticleAG: Your Partner in Digital Innovation">
+          <meta property="og:description" content="Expert web and app development, digital marketing, and sales solutions. Transform your vision into reality with ParticleAG.">
+          <meta property="og:image" content="{% static 'home/images/og-image.jpg' %}">
+
+          <!-- Twitter -->
+          <meta property="twitter:card" content="summary_large_image">
+          <meta property="twitter:url" content="https://www.particeldigital.agency/">
+          <meta property="twitter:title" content="ParticleAG: Your Partner in Digital Innovation">
+          <meta property="twitter:description" content="Expert web and app development, digital marketing, and sales solutions. Transform your vision into reality with ParticleAG.">
+          <meta property="twitter:image" content="{% static 'home/images/twitter-image.jpg' %}">
+
+          <link rel="canonical" href="https://www.particeldigital.agency/">
           <link rel="stylesheet" href="{% static 'home/css/cstm.css' %}">
           <link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}">
-          <link rel="icon" href="{% static 'home/images/Particel.png' %}" type="image/icon type">
+          <link rel="icon" href="{% static 'home/images/Particel.png' %}" type="image/png">
           <script src="https://kit.fontawesome.com/b9928a934b.js" crossorigin="anonymous"></script>
 
           <!-- MAIN CSS -->
           <link rel="stylesheet" href="{% static 'home/css/main.css' %}">
-          <style>
-                   footer {
-      background-color: #0b1957;
-      color: #f8f3ea;
-      padding: 60px 0 30px;
-      position: relative;
-      overflow: hidden;
-    }
-    .navbar {
-      background-color: transparent;
-      padding: 15px 0;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1030;
-      transition: background-color 0.3s ease;
-    }
-
-    .navbar-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .navbar-brand {
-      font-weight: 700;
-      color: #f8f3ea;
-      text-decoration: none;
-      font-size: 1.5rem;
-      transition: color 0.3s ease;
-    }
-
-    .navbar-brand:hover {
-      color: #9eccfa;
-    }
-
-    .navbar-nav {
-      display: flex;
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .navbar-nav > li > a {
-      color: #f8f3ea;
-      font-size: 1.5rem;
-      padding: 8px 15px;
-      text-decoration: none;
-      transition: color 0.3s ease, background-color 0.3s ease;
-      border-radius: 5px;
-    }
-
-    .navbar-nav > li > a:hover,
-    .navbar-nav > li > a:focus {
-      color: #9eccfa;
-      background-color: rgba(158, 204, 250, 0.1);
-    }
-
-    .navbar-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 10px;
-    }
-
-    .icon-bar {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background-color: #f8f3ea;
-      margin: 4px 0;
-      transition: all 0.3s ease;
-    }
-
-    .navbar-social {
-      display: flex;
-      align-items: center;
-    }
-
-    .navbar-social a {
-      color: #f8f3ea;
-      font-size: 1.8rem;
-      margin-left: 15px;
-      transition: color 0.3s ease;
-    }
-
-    .navbar-social a:hover {
-      color: #9eccfa;
-    }
-
-    @media (max-width: 768px) {
-      .navbar-nav {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: rgba(11, 25, 87, 0.95);
-        padding: 10px 0;
-      }
-
-      .navbar-nav.show {
-        display: flex;
-      }
-
-      .navbar-toggle {
-        display: block;
-      }
-
-      .navbar-social {
-        display: none;
-      }
-    }
-    .footer-content {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .footer-section {
-      flex: 1;
-      margin-right: 40px;
-      margin-bottom: 30px;
-      min-width: 200px;
-    }
-
-    .footer-section:last-child {
-      margin-right: 0;
-    }
-
-    .footer-section h2 {
-      color: #9eccfa;
-      font-size: 1.9rem;
-      margin-bottom: 20px;
-      position: relative;
-      padding-bottom: 10px;
-    }
-
-    .footer-section h2::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 50px;
-      height: 2px;
-      background-color: #9eccfa;
-    }
-
-    .footer-section p,
-    .footer-section a {
-      color: #e6d8c7;
-      line-height: 1.6;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 10px;
-      transition: color 0.3s ease;
-    }
-
-    .footer-section a:hover {
-      color: #9eccfa;
-    }
-
-    .footer-bottom {
-      text-align: center;
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(230, 216, 199, 0.1);
-    }
-
-    .copyright-text {
-      color: #e6d8c7;
-      font-size: 0.9rem;
-    }
-
-    .footer-social {
-      margin-top: 20px;
-    }
-
-    .footer-social a {
-      color: #e6d8c7;
-      font-size: 1.5rem;
-      margin: 0 10px;
-      transition: color 0.3s ease;
-    }
-
-    .footer-social a:hover {
-      color: #9eccfa;
-    }
-
-    .footer-background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.05;
-      background-image: url('https://your-background-image-url.jpg');
-      background-size: cover;
-      background-position: center;
-    }
-
-    @media (max-width: 768px) {
-      .footer-content {
-        flex-direction: column;
-      }
-
-      .footer-section {
-        margin-right: 0;
-      }
-    }
-     .navbar.scrolled {
-     background-color: white;
-     }
-
-     .navbar.scrolled .navbar-brand,
-     .navbar.scrolled .navbar-nav > li > a,
-     .navbar.scrolled .navbar-social a { /* Target the social media links */
-     color: #0b1957;
-     }
-     .navbar.scrolled {
-  background-color: white;
-}
-     
-     </style>
+          <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
      </head>
      <body>
           <!-- PRE LOADER -->
@@ -261,31 +42,43 @@
           </section>
           <!-- MENU -->
 
-               <nav class="navbar">
-                    <div class="navbar-container">
-                      <a href="{% url 'pershdev-home' %}" class="navbar-brand" style="font-size: 2.5rem; font-weight: bold;">ParticelAG</a>
-                      <button class="navbar-toggle" id="navbarToggle">   
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                      </button>
-                      <ul class="navbar-nav" id="navbarNav">
-                        <li><a href="{% url 'pershdev-home' %}" class="smoothScroll">Home</a></li>
-                        <li><a href="{% url 'achieve' %}" class="smoothScroll">Achievements</a></li>
-                        <li><a href="{% url 'pershdev-cs50d' %}" class="smoothScroll">About Us</a></li>
-                        <li><a href="#contact" class="smoothScroll">Contact Us</a></li>
-                        <li><a href="#findus" class="smoothScroll">Find Us</a></li>
-                      </ul>
-                      <div class="navbar-social">
-                        <a href="https://www.facebook.com/particelag" target="_blank"><i class="fab fa-facebook-square"></i></a>
-                        <a href="https://www.twitter.com/particelag/" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/particel.ag" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.youtube.com/@ParticelDigitalAgency" target="_blank"><i class="fab fa-youtube"></i></a>
-                      </div>
+          <nav class="navbar">
+               <div class="navbar-container">
+                    <a href="{% url 'pershdev-home' %}" class="navbar-brand">ParticelAG</a>
+                    <button class="navbar-toggle" id="navbarToggle">
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                    </button>
+                    <ul class="navbar-nav" id="navbarNav">
+                         <li><a href="{% url 'pershdev-home' %}" class="smoothScroll">Home</a></li>
+                         <li><a href="{% url 'achieve' %}" class="smoothScroll">Achievements</a></li>
+                         <li><a href="{% url 'pershdev-cs50d' %}" class="smoothScroll">About Us</a></li>
+                         <li><a href="#contact" class="smoothScroll">Contact Us</a></li>
+                         <li><a href="#findus" class="smoothScroll">Find Us</a></li>
+                    </ul>
+                    <div class="navbar-social">
+                         <a href="https://www.facebook.com/particelag" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                         <a href="https://www.twitter.com/particelag/" target="_blank"><i class="fab fa-twitter"></i></a>
+                         <a href="https://www.instagram.com/particel.ag" target="_blank"><i class="fab fa-instagram"></i></a>
+                         <a href="https://www.youtube.com/@ParticelDigitalAgency" target="_blank"><i class="fab fa-youtube"></i></a>
                     </div>
-                  </nav>
-
-
+               </div>
+               <!-- Mobile dropdown -->
+               <div class="dropdown-content" id="mobileDropdown">
+                    <a href="{% url 'pershdev-home' %}">Home</a>
+                    <a href="{% url 'achieve' %}">Achievements</a>
+                    <a href="{% url 'pershdev-cs50d' %}">About Us</a>
+                    <a href="{% url 'pershdev-home' %}">Contact Us</a>
+                    <a href="#findus">Find Us</a>
+                    <div class="dropdown-social">
+                         <a href="https://www.facebook.com/particelag" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                         <a href="https://www.twitter.com/particelag/" target="_blank"><i class="fab fa-twitter"></i></a>
+                         <a href="https://www.instagram.com/particel.ag" target="_blank"><i class="fab fa-instagram"></i></a>
+                         <a href="https://www.youtube.com/@ParticelDigitalAgency" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+               </div>
+          </nav>
           <!-- HOME -->
           <section id="home" data-stellar-background-ratio="0.5">
                <div class="overlay"></div>
@@ -382,7 +175,7 @@
                </div>
           </section>
 
-          <footer id="findus">
+          <footer>
                <div class="footer-background"></div>
                <div class="footer-content">
                  <div class="footer-section" style="background-color: #0b1957;">
@@ -419,33 +212,33 @@
              </footer>
 
           <!-- SCRIPTS -->
+          <script src="{% static 'home/js/home.js' %}"></script>
           <script src="{% static 'home/js/jquery.js' %}"></script>
           <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
           <script src="{% static 'home/js/jquery.stellar.min.js' %}"></script>
           <script src="{% static 'home/js/jquery.magnific-popup.min.js' %}"></script>
           <script src="{% static 'home/js/smoothscroll.js' %}"></script>
           <script src="{% static 'home/js/custom.js' %}"></script>
-          <script>
-          setTimeout(function(){
-               if ($('#djmsg').length > 0) {
-                    $('#djmsg').remove();
-               }
-          }, 5000)    // 2000 millisecond
 
-          // Add this script to keep navbar transparent
-          window.addEventListener('scroll', function() {
-               var navbar = document.querySelector('.navbar');
-               navbar.style.backgroundColor = 'transparent';
-          });
-          window.addEventListener('scroll', function() {
-               var navbar = document.querySelector('.navbar');
-               if (window.scrollY > 0) {
-               navbar.classList.add('scrolled');
-               navbar.style.backgroundColor = 'white';
-               } else {
-               navbar.classList.remove('scrolled');
+          <!-- Add structured data for LocalBusiness -->
+          <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "ParticleAG Digital Agency",
+            "image": "{% static 'home/images/Particel.png' %}",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Via Val di Sole, 9A",
+              "addressLocality": "Milano",
+              "addressRegion": "MI",
+              "postalCode": "20141",
+              "addressCountry": "IT"
+            },
+            "url": "https://www.particeldigital.agency/",
+            "telephone": "+1234567890",
+            "priceRange": "$$$"
           }
-});
           </script>
      </body>
 </html>
