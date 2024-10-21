@@ -34,7 +34,7 @@ def home(request):
                 cf_name,
                 cf_message,
                 cf_email,
-                ['blintues@yahoo.com'],
+                ['agholinezhadazar@gmail.com'],
                 fail_silently=False,  # Change to False to raise exceptions
             )
             context['cf_name'] = cf_name
