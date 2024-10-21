@@ -6,21 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Discover Particel Digital Agency's achievements, happy clients, and successful projects. Leading digital solutions for businesses.">
     <meta name="keywords" content="Particel, digital agency, achievements, clients, projects, digital solutions">
-    <link rel="canonical" href="https://www.particel.com/achievements">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="canonical" href="https://www.particel.com/achievements"> 
     <link rel="icon" href="{% static 'home/images/Particel.png' %}" type="image/icon type">
+  
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'nonce-{{ nonce }}' https://kit.fontawesome.com; style-src 'self'; img-src 'self' data:; frame-ancestors 'none';">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin"> 
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
     <link rel="stylesheet" href="{% static 'home/css/achievement.css' %}">
     <title>Particel Digital Agency - Client Achievements & Success Stories | Leading Digital Solutions</title>
-    <meta property="og:title" content="Particel Digital Agency - Client Achievements & Success Stories">
-    <meta property="og:description" content="Discover Particel Digital Agency's achievements, happy clients, and successful projects. Leading digital solutions for businesses.">
-    <meta property="og:image" content="{% static 'home/images/Particel.png' %}">
-    <meta property="og:url" content="https://www.particel.com/achievements">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Particel Digital Agency - Client Achievements & Success Stories">
-    <meta name="twitter:description" content="Discover Particel Digital Agency's achievements, happy clients, and successful projects. Leading digital solutions for businesses.">
-    <meta name="twitter:image" content="{% static 'home/images/Particel.png' %}">
-  </head>
+  
+    </head>
   <body>
     <!-- PRE LOADER -->
     <section class="preloader">
@@ -157,12 +156,12 @@
         </div>
       </div>
     </footer>
-    <script src="{% static 'home/js/achievment.js' %}"></script>
-    <script src="{% static 'home/js/jquery.js' %}"></script>
-    <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'home/js/jquery.stellar.min.js' %}"></script>
-    <script src="{% static 'home/js/jquery.magnific-popup.min.js' %}"></script>
-    <script src="{% static 'home/js/smoothscroll.js' %}"></script>
-    <script src="{% static 'home/js/custom.js' %}"></script>
+    <script src="{% static 'home/js/achievment.js' %}" nonce="{{ nonce }}"></script>
+    <script src="{% static 'home/js/jquery.js' %}" nonce="{{ nonce }}"></script>
+    <script src="{% static 'home/js/bootstrap.min.js' %}" nonce="{{ nonce }}"></script>
+    <script src="{% static 'home/js/jquery.stellar.min.js' %}" nonce="{{ nonce }}"></script>
+    <script src="{% static 'home/js/jquery.magnific-popup.min.js' %}" nonce="{{ nonce }}"></script>
+    <script src="{% static 'home/js/smoothscroll.js' %}" nonce="{{ nonce }}"></script>
+    <script src="{% static 'home/js/custom.js' %}" nonce="{{ nonce }}"></script>
   </body>
 </html>

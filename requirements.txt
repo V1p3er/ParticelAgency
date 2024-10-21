@@ -1,0 +1,5 @@
+django-debreach
+django
+pip
+python
+bleach

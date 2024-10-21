@@ -1,31 +1,39 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Particel Digital Agency - Professional Web Development and Digital Marketing Services</title>
-    <meta name="description" content="Particel Digital Agency offers expert web development, digital marketing, and SEO services. Boost your online presence with our tailored solutions.">
-    <meta name="author" content="Arman Gholinezhad">
-    <meta name="keywords" content="digital agency, web development, SEO, digital marketing, Particel AG">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.particelag.com/">
-    <meta property="og:title" content="Particel Digital Agency - Professional Web Development and Digital Marketing Services">
-    <meta property="og:description" content="Boost your online presence with Particel Digital Agency's expert web development, digital marketing, and SEO services.">
-    <meta property="og:image" content="{% static 'home/images/particel-og-image.jpg' %}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">   
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.particelag.com/">
-    <meta property="twitter:title" content="Particel Digital Agency - Professional Web Development and Digital Marketing Services">
-    <meta property="twitter:description" content="Boost your online presence with Particel Digital Agency's expert web development, digital marketing, and SEO services.">
-    <meta property="twitter:image" content="{% static 'home/images/particel-twitter-image.jpg' %}">
+  <title>Particel Digital Agency - Professional Web Development and Digital Marketing Services</title>
+  <meta name="description" content="Particel Digital Agency offers expert web development, digital marketing, and SEO services. Boost your online presence with our tailored solutions.">
+  <meta name="author" content="Arman Gholinezhad">
+  <meta name="keywords" content="digital agency, web development, SEO, digital marketing, Particel AG">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.particelag.com/">
+  <meta property="og:title" content="Particel Digital Agency - Professional Web Development and Digital Marketing Services">
+  <meta property="og:description" content="Boost your online presence with Particel Digital Agency's expert web development, digital marketing, and SEO services.">
+  <meta property="og:image" content="{% static 'home/images/particel-og-image.jpg' %}">
 
-    <link rel="canonical" href="https://www.particelag.com/">
-    <link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}">
-    <link rel="icon" href="{% static 'home/images/Particel.png' %}" type="image/png">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.particelag.com/">
+  <meta property="twitter:title" content="Particel Digital Agency - Professional Web Development and Digital Marketing Services">
+  <meta property="twitter:description" content="Boost your online presence with Particel Digital Agency's expert web development, digital marketing, and SEO services.">
+  <meta property="twitter:image" content="{% static 'home/images/particel-twitter-image.jpg' %}">
+
+  <link rel="canonical" href="https://www.particelag.com/">
+  <link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}">
+  <link rel="icon" href="{% static 'home/images/Particel.png' %}" type="image/png">
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'nonce-{{ nonce }}' https://kit.fontawesome.com; style-src 'self'; img-src 'self' data:; frame-ancestors 'none';">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta http-equiv="X-Content-Type-Options"   
+ content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">   
+ 
+
     <style>
       html {
         scroll-behavior: smooth;
@@ -494,7 +502,8 @@
         }
       }
     </style>
-    <script src="https://kit.fontawesome.com/b9928a934b.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b9928a934b.js" crossorigin="anonymous" nonce="{{ nonce }}"></script>
+
   </head>
   <body>
     <!-- PRE LOADER -->
@@ -577,12 +586,12 @@
         </div>
       </div>
     </footer>
-    <script src="{% static 'home/js/jquery.js' %}"></script>
-    <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'home/js/jquery.stellar.min.js' %}"></script>
-    <script src="{% static 'home/js/smoothscroll.js' %}"></script>
-    <script src="{% static 'home/js/custom.js' %}"></script>
-    <script>
+    <script src="{% static 'home/js/jquery.js' %}" nonce="{{ nonce }}"></script>
+    <script src="{% static 'home/js/bootstrap.min.js' %}" nonce="{{ nonce }}"></script>
+    <script src="{% static 'home/js/jquery.stellar.min.js' %}" nonce="{{ nonce }}"></script>
+    <script src="{% static 'home/js/smoothscroll.js' %}" nonce="{{ nonce }}"></script>
+    <script src="{% static 'home/js/custom.js' %}" nonce="{{ nonce }}"></script>
+    <script nonce="{{ nonce }}">
       // Preloader script
       window.addEventListener('load', function() {
         setTimeout(function() {
@@ -610,15 +619,15 @@
         });
       });
     </script>
-        <script>
-          function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('navbarMobileMenu');
-            mobileMenu.classList.toggle('show');
-          }
+    <script nonce="{{ nonce }}">
+      function toggleMobileMenu() {
+        const mobileMenu = document.getElementById('navbarMobileMenu');
+        mobileMenu.classList.toggle('show');
+      }
     
-          document.getElementById('navbarToggle').addEventListener('click', toggleMobileMenu);
+      document.getElementById('navbarToggle').addEventListener('click', toggleMobileMenu);
     </script>
-    <script>
+    <script nonce="{{ nonce }}">
       // Updated script for toggling the mobile dropdown and hiding desktop navbar
       document.addEventListener('DOMContentLoaded', function() {
         const navbarToggle = document.getElementById('navbarToggle');

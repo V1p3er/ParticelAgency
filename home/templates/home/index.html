@@ -2,21 +2,30 @@
 <!DOCTYPE html>
 <html lang="en">
      <head>
-          <title>Particel Digital Agency</title>
           <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"> 
+          <link rel="icon"   
+         href="{% static 'home/images/Particel.png' %}" type="image/icon type">
+          <title>Particel Digital Agency</title>
           <meta http-equiv="X-UA-Compatible" content="IE=Edge">
           <meta name="description" content="Expert in web and app development, digital marketing, and sales solutions. We turn your vision into reality with innovative and detailed-driven strategies. Discover unparalleled digital solutions with ParticleAG.">
           <meta name="keywords" content="Web development, Backend, Frontend, Database management, programming Agency">
           <meta name="author" content="Particel Team">
-          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        
           <link rel="stylesheet" href="{% static 'home/css/cstm.css' %}">
           <link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}">
-          <link rel="icon" href="{% static 'home/images/Particel.png' %}" type="image/icon type">
-          <script src="https://kit.fontawesome.com/b9928a934b.js" crossorigin="anonymous"></script>
-
-          <!-- MAIN CSS -->
           <link rel="stylesheet" href="{% static 'home/css/main.css' %}">
           <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+        
+          <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'nonce-{{ nonce }}' https://kit.fontawesome.com; style-src 'self'; img-src 'self' data:; frame-ancestors 'none';">
+          <meta http-equiv="X-Frame-Options" content="DENY">
+          <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+          <meta http-equiv="X-Content-Type-Options"   
+         content="nosniff">
+          <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">   
+         
      </head>
      <body>
           <!-- PRE LOADER -->
@@ -120,15 +129,15 @@
                               <form id="contact-form" role="form" action="{% url 'pershdev-home' %}" method="post">
                                    {% csrf_token %}
                                    <div class="col-md-6 col-sm-6">
-                                        <input type="text" class="form-control" placeholder="Full Name" id="cf-name" name="cf-name" required="">
+                                        <input type="text" class="form-control" placeholder="Full Name" id="cf-name" name="cf-name" required="" maxlength="100">
                                    </div>
 
                                    <div class="col-md-6 col-sm-6">
-                                        <input type="email" class="form-control" placeholder="Your Email" id="cf-email" name="cf-email" required="">
+                                        <input type="email" class="form-control" placeholder="Your Email" id="cf-email" name="cf-email" required="" maxlength="254">
                                    </div>
 
                                    <div class="col-md-6 col-sm-6">
-                                        <input type="tel" class="form-control" placeholder="Your Phone" id="cf-number" name="cf-number" required="">
+                                        <input type="tel" class="form-control" placeholder="Your Phone" id="cf-number" name="cf-number" required="" pattern="[0-9+\-\s()]{6,20}" title="Please enter a valid phone number">
                                    </div>
 
                                    <div class="col-md-6 col-sm-6">
@@ -145,7 +154,7 @@
                                    </div>
 
                                    <div class="col-md-12 col-sm-12">
-                                        <textarea class="form-control" rows="6" placeholder="Your requirements" id="cf-message" name="cf-message" required=""></textarea>
+                                        <textarea class="form-control" rows="6" placeholder="Your requirements" id="cf-message" name="cf-message" required="" maxlength="1000"></textarea>
                                    </div>
                                    <div class="col-md-4 col-sm-12">
                                         <input type="submit" class="form-control" name="submit" value="Send Message">
@@ -199,12 +208,12 @@
              </footer>
 
           <!-- SCRIPTS -->
-          <script src="{% static 'home/js/home.js' %}"></script>
-          <script src="{% static 'home/js/jquery.js' %}"></script>
-          <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
-          <script src="{% static 'home/js/jquery.stellar.min.js' %}"></script>
-          <script src="{% static 'home/js/jquery.magnific-popup.min.js' %}"></script>
-          <script src="{% static 'home/js/smoothscroll.js' %}"></script>
-          <script src="{% static 'home/js/custom.js' %}"></script>
+          <script src="{% static 'home/js/home.js' %}" nonce="{{ nonce }}"></script>
+          <script src="{% static 'home/js/jquery.js' %}" nonce="{{ nonce }}"></script>
+          <script src="{% static 'home/js/bootstrap.min.js' %}" nonce="{{ nonce }}"></script>
+          <script src="{% static 'home/js/jquery.stellar.min.js' %}" nonce="{{ nonce }}"></script>
+          <script src="{% static 'home/js/jquery.magnific-popup.min.js' %}" nonce="{{ nonce }}"></script>
+          <script src="{% static 'home/js/smoothscroll.js' %}" nonce="{{ nonce }}"></script>
+          <script src="{% static 'home/js/custom.js' %}" nonce="{{ nonce }}"></script>
      </body>
 </html>
